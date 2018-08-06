@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { StyleSheet, Text, View, Alert, Animated, Image,  Dimensions, ScrollView} from 'react-native';
 import Button from 'react-native-button';
 import PageControl from 'react-native-page-control'; //This library provide dots fro navigation
+import { Actions } from 'react-native-router-flux'; // New code
 
 const styles = StyleSheet.create({
     container: {
@@ -57,25 +58,24 @@ const styles = StyleSheet.create({
       },
       text:{
         color:'#ffffff',
-        fontWeight:'italic',
         fontSize: 36,
         marginTop:250,
       },
       text2:{
         color:'#ffffff',
-        fontWeight:'italic',
+        // fontWeight:'italic',
         fontSize: 26,
         marginTop:250,
       },
       text3:{
         color:'#ffffff',
-        fontWeight:'italic',
+        // fontWeight:'italic',
         fontSize: 30,
         marginTop:200,
       },
       text4:{
         color:'#ffffff',
-        fontWeight:'italic',
+        // fontWeight:'italic',
         fontSize: 15,
         marginTop:250,
       },
@@ -190,7 +190,7 @@ export default class HomeComponent extends Component{
                 <Animated.View style={[styles.screen,transitionAnimation(0)]}>
                   <Image source={require('./img/discover.png')} style={styles.backgroundImage} />
                   <View style={styles.loginbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
+                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.login()}
                     style={{color:'#FCDC28'}}>
                     Login
                   </Button>
@@ -204,10 +204,10 @@ export default class HomeComponent extends Component{
                    indicatorSize={{width:8, height:8}}
                   /> 
                   </View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
+                  <Button onPress={() => Actions.signup()} containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
                     Signup
                   </Button>
-                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn}>
+                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn} onPress={() => Actions.checkingevent()}>
                     Explore
                   </Button>
                   </View>
@@ -216,7 +216,7 @@ export default class HomeComponent extends Component{
                 <Animated.View style={[styles.screen,transitionAnimation(1)]}>
                   <Image source={require('./img/connect.png')} style={styles.backgroundImage} />
                   <View style={styles.loginbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
+                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.login()}
                     style={{color:'#FCDC28'}}>
                     Login
                   </Button>
@@ -230,10 +230,10 @@ export default class HomeComponent extends Component{
                    indicatorSize={{width:8, height:8}}
                   /> 
                   </View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
+                  <Button onPress={() => Actions.signup()} containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
                     Signup
                   </Button>
-                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn}>
+                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn}onPress={() => Actions.checkingevent()}>
                     Explore
                   </Button>
                   </View>
@@ -242,7 +242,7 @@ export default class HomeComponent extends Component{
                 <Animated.View style={[styles.screen,transitionAnimation(2)]}>
                   <Image source={require('./img/track.png')} style={styles.backgroundImage} />
                   <View style={styles.loginbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
+                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.login()}
                     style={{color:'#FCDC28'}}>
                     Login
                   </Button>
@@ -256,10 +256,10 @@ export default class HomeComponent extends Component{
                    indicatorSize={{width:8, height:8}}
                   /> 
                   </View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
+                  <Button onPress={() => Actions.signup()} containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
                     Signup
                   </Button>
-                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn}>
+                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn} onPress={() => Actions.checkingevent()}>
                     Explore
                   </Button>
                   </View>
@@ -268,7 +268,7 @@ export default class HomeComponent extends Component{
                 <Animated.View style={[styles.screen,transitionAnimation(3)]}>
                   <Image source={require('./img/celebrate.png')} style={styles.backgroundImage} />
                   <View style={styles.loginbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
+                  <Button containerStyle={{marginLeft:-10, paddingTop:25, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.login()}
                     style={{color:'#FCDC28'}}>
                     Login
                   </Button>
@@ -282,10 +282,10 @@ export default class HomeComponent extends Component{
                    indicatorSize={{width:8, height:8}}
                   /> 
                   </View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
+                  <Button onPress={() => Actions.signup()} containerStyle={{padding:10, width:120, marginTop:-30,marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.signupBtn}>
                     Signup
                   </Button>
-                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn}>
+                  <Button containerStyle={{padding:10, width:120, marginTop:10, marginLeft:215, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.exploreBtn} onPress={() => Actions.checkingevent()}>
                     Explore
                   </Button>
                   </View>
