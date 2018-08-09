@@ -13,6 +13,7 @@ import ParkdayComponent from './Apps/Component/parkdayComponent/parkdayComponent
 import ShiftComponent from './Apps/Component/shiftComponent/shiftComponent'
 import MitzvagComponent from './Apps/Component/MitzvagFood/MitzvagFood'
 import ThankyouComponent from './Apps/Component/ThankyouComponent/ThankyouComponent'
+import ActionsList from './Apps/Component/ActionsList/ActionList'
 
 export default class App extends Component {
   render() {
@@ -30,6 +31,7 @@ export default class App extends Component {
         {/* <ShiftComponent /> */}
         {/* <MitzvagComponent /> */}
         {/* <ThankyouComponent /> */}
+        {/* <ActionsList  /> */}
         <Router>
       <Scene key="root">
         <Scene key="home"
@@ -72,6 +74,11 @@ export default class App extends Component {
           component={NewsFeed}
           hideNavBar={true}
         />
+          <Scene
+          key="actionlist"
+          component={ActionsList}
+          hideNavBar={true}
+        />
         <Scene
           key="shiftcomponent"
           component={ShiftComponent}
@@ -80,6 +87,11 @@ export default class App extends Component {
         <Scene
           key="parkday"
           component={ParkdayComponent}
+          hideNavBar={true}
+        />
+          <Scene
+          key="mitzvagComponent"
+          component={MitzvagComponent}
           hideNavBar={true}
         />
         <Scene

@@ -288,7 +288,7 @@ class ShiftComponent extends Component{
         return(
             <View style={styles.container}>
                    <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-5, paddingTop:30, width:80, marginTop:5, position:'relative', borderRadius:4, backgroundColor: 'transparent'}}  onPress={() => Actions.parkday()}
+                  <Button containerStyle={{marginLeft:-5, paddingTop:30, width:80, marginTop:5, position:'relative', borderRadius:4, backgroundColor: 'transparent'}}  onPress={() => Actions.actionlist()}
                     style={{color:'#FCDC28'}}>
                   <Image source={require('./img/arrow.png')} style={{width:20,height:26,marginLeft:15}}/>
                   </Button>

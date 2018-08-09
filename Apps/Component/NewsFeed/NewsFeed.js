@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView,  Dimensions, KeyboardAvoidingView,TextInput,TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView,  Dimensions,KeyboardAvoidingView,TextInput,TouchableOpacity} from 'react-native';
 import Button from 'react-native-button';
 import Row from 'react-native-row'; 
 import PageControl from 'react-native-page-control'; //This library provide dots fro navigation
@@ -41,8 +41,10 @@ const styles = StyleSheet.create({
       },
       seemore:{
           color:'#205BA3',
-          paddingLeft:280,
-          marginTop:-19
+      },
+      touchableseemore:{
+        paddingLeft:280,
+        marginTop:-19
       },
       mainContainer:{
         marginLeft:20,
@@ -149,7 +151,9 @@ class NewsFeed extends Component{
                   <Text style={styles.line}>────────────────────────────────────</Text>
                   <View>
                   <Text style={styles.suggestedtxt}>Suggested Actions</Text>
+                  <TouchableOpacity style={styles.touchableseemore} onPress={() => Actions.actionlist()}>
                   <Text style={styles.seemore}>See More</Text>
+                  </TouchableOpacity>
                   {/* <Row dial={1} flex> */}
                         <View >
                         <TouchableOpacity onPress={() => Actions.shiftcomponent()}>
