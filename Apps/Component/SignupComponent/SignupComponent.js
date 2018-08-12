@@ -9,6 +9,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scrollview'
 import styled from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux'; // New code
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 // import Container from './style'
 
@@ -16,6 +17,8 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
+        width: wp('100%'),
+        height: hp('100%'),
         // backgroundColor:'#EDF1F5',
         // marginTop:-250,
         // width:360,
@@ -26,6 +29,7 @@ const styles = StyleSheet.create({
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
         // marginTop:10,
+        width: wp('100%'),
         height:300,
         // justifyContent: 'flex-end',
         // width:370,
@@ -33,7 +37,8 @@ const styles = StyleSheet.create({
       loginbtnContainer:{
         position:'relative',
         paddingLeft:10,
-        width:250,
+        // width:250,
+        // width: wp('100%'),
         flexDirection: 'row',
       },
       textView: {
@@ -44,7 +49,8 @@ const styles = StyleSheet.create({
       },
        text:{
         marginTop:50,
-        marginLeft:60,
+        marginLeft:wp('20%'),
+        width: wp('100%'),
         fontSize:16,
         color: '#ffffff',
        },

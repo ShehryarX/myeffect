@@ -14,6 +14,8 @@ import ShiftComponent from './Apps/Component/shiftComponent/shiftComponent'
 import MitzvagComponent from './Apps/Component/MitzvagFood/MitzvagFood'
 import ThankyouComponent from './Apps/Component/ThankyouComponent/ThankyouComponent'
 import ActionsList from './Apps/Component/ActionsList/ActionList'
+import GroupComponent from './Apps/Component/GroupComponent/GroupComponent'
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class App extends Component {
   render() {
@@ -32,6 +34,7 @@ export default class App extends Component {
         {/* <MitzvagComponent /> */}
         {/* <ThankyouComponent /> */}
         {/* <ActionsList  /> */}
+        {/* <GroupComponent /> */}
         <Router>
       <Scene key="root">
         <Scene key="home"
@@ -109,8 +112,10 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#fff',
+    width: wp('100%'),
+    height: hp('100%'),
+    // backgroundColor: 'red',
     // alignItems: 'center',
-    // justifyContent: 'center',
+    justifyContent: 'center',
   },
 });
