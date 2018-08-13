@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { Actions } from 'react-native-router-flux'; // New code
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 // import Container from './style'
 
@@ -19,55 +20,60 @@ const styles = StyleSheet.create({
         position:'relative',
         width: wp('100%'),
         height: hp('100%'),
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
        },
       backgroundImage: {
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
-        // marginTop:10,
         width: wp('100%'),
-        height:300,
-        // justifyContent: 'flex-end',
-        // width:370,
+        height:wp('50%'),
       },
       loginbtnContainer:{
-        position:'relative',
-        paddingLeft:10,
-        // width:250,
-        // width: wp('100%'),
-        flexDirection: 'row',
+        flex: 1,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        position: 'absolute',
+        marginLeft: moderateScale(40),
+        // marginTop: -370,
+        // width: SCREEN_WIDTH,
+        // flexDirection: 'row',
       },
       textView: {
         // paddingTop: 80,
         // width: 100,
         // height: 100,
         // backgroundColor: '#ffffff',
+        // marginTop:wp("40%")
       },
        text:{
-        marginTop:50,
+        marginTop:wp("25%"),
+        marginLeft:wp('22%'),
+        width: wp('100%'),
+        fontSize:wp("4%"),
+        color: '#ffffff',
+       },
+       text2:{
+        marginTop:wp("-2%"),
         marginLeft:wp('20%'),
         width: wp('100%'),
-        fontSize:16,
+        fontSize:wp("4%"),
         color: '#ffffff',
        },
        bgForm:{
-        marginTop:50,
+         flex:1,
+        marginTop:wp("20%"),
         backgroundColor:'#EDF1F5',
-        width:500,
-        height:400,
+        width:wp("100%"),
+        height:wp("100%"),
         position:'relative',
         overflow:'hidden',
 
        },   
        form:{
        flex:1,
-       width: 300,
-       paddingTop:20,
-       paddingLeft:60,
+       width: wp("88%"),
+       paddingTop:wp("10%"),
+       paddingLeft:wp("13%"),
        },
        labelText:{
            color:'#AEB0B1',
@@ -84,11 +90,11 @@ const styles = StyleSheet.create({
            height:50
        },
        readandagree:{
-           fontSize:10,
+           fontSize:wp("3%"),
            color:'#AEB0B1',
        },
        radioGroup:{
-           marginLeft:-30
+           marginLeft:wp("-5%")
        },
        termsCondition:{
          color:'#1D54A0',
@@ -97,11 +103,10 @@ const styles = StyleSheet.create({
         color:'#ffffff',
       },
       signupText:{
-        //   paddingTop:10,
           color:'#ffffff',
-          margin:5,
-          paddingLeft:30,
-          fontSize:15,
+          margin:wp("2%"),
+          paddingLeft:wp("9%"),
+          fontSize:wp("4%"),
       }
   });
 
@@ -151,18 +156,20 @@ class SignupComponent extends Component{
         return(
             <View style={styles.container}>
                 <Image source={require('./img/bg.png')} style={styles.backgroundImage} />
-                
-                {/* <Container>
-                    </Container> */}
                 <View style={styles.loginbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:30, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.login()}
-                    style={{color:'#FCDC28'}}>
+                <View style={{marginLeft:wp('-10%')}}>
+                  <Button containerStyle={{paddingTop: wp('8%'),  flex:1,position: 'relative', borderRadius: 4, backgroundColor: 'transparent'}} onPress={() => Actions.login()}
+                    style={{color: '#FCDC28',fontSize:wp("5%"),width:wp("20%"),}}>
                     Login
                   </Button>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:70,marginTop:15}} />
+                  </View>
+                  <View  style={{marginLeft:wp('33%'),height:10,marginTop:10}}>
+                  <Image source={require('./img/logo.png')} style={{width: wp('15%'),flex:1, marginTop: wp('-10%')}} />
+                  </View>
                   </View>
                   <View styles={styles.textView}>
-                     <Text style={styles.text}>Join MyEffect to discover, track{"\n"}and share your effect in the world</Text>
+                     <Text style={styles.text}>Join MyEffect to discover, track{"\n"}</Text>
+                     <Text style={styles.text2}>and share your effect in the world</Text>
                   </View>
                   <View style={styles.bgForm}>
                    <View style={styles.form}>
@@ -179,7 +186,7 @@ class SignupComponent extends Component{
                         <Text style={styles.readandagree}>I have read and agree MyEffet <Text style={styles.termsCondition}>Terms and Conditions</Text></Text>
                      </RadioButton>
                     </RadioGroup>
-                    <Button containerStyle={{marginTop:10, marginLeft:50, height:35, width:120,  overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.signupBtn} onPress={() => Actions.globalgoals()}>
+                    <Button containerStyle={{marginTop:wp("6%"), marginLeft:wp("18%"), height:wp('10%'), width:wp("35%"),  overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.signupBtn} onPress={() => Actions.globalgoals()}>
                      <Text style={styles.signupText}>Sign Up</Text>
                    </Button>
                   </View>

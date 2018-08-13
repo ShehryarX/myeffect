@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   text3: {
     flex: 1,
     color: '#ffffff',
-    fontSize: wp("7%"),
+    fontSize: wp("6.1%"),
     marginTop: wp("50%"),
     width:moderateScale(300)
   },
