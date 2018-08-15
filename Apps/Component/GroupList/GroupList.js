@@ -3,35 +3,48 @@ import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView,  Dimensions,
 import Button from 'react-native-button';
 import Row from 'react-native-row'; 
 import { Actions } from 'react-native-router-flux'; // New code
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width: wp('100%'),
+        height: hp('100%'),
+        backgroundColor:'#EDF1F5'
        },
       backgroundImage: {
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
-        // marginTop:10,
-        height:300,
-        // justifyContent: 'flex-end',
-        // width:370,
+        width: wp('100%'),
+        height:wp('50%'),
       },
-      arrowbtnContainer:{
-        position:'relative',
-        paddingLeft:10,
-        width:250,
-        flexDirection: 'row',
+      loginbtnContainer:{
+        flex: 1,
+        position: 'absolute',
+        marginLeft: moderateScale(40),
+      },
+      textView: {
+        // paddingTop: 80,
+        // width: 100,
+        // height: 100,
+        // backgroundColor: '#ffffff',
+        // marginTop:wp("40%")
       },
       text:{
-        marginTop:10,
-        marginLeft:65,
-        fontSize:21,
+        marginTop:wp("25%"),
+        marginLeft:wp('22%'),
+        width: wp('100%'),
+        fontSize:wp("5%"),
+        color: '#ffffff',
+       },
+       text2:{
+        marginTop:wp("-2%"),
+        marginLeft:wp('38%'),
+        width: wp('100%'),
+        fontSize:wp("5%"),
         color: '#ffffff',
        },
        bg:{
@@ -44,36 +57,34 @@ const styles = StyleSheet.create({
 
        },      
        content:{
-
-        marginTop:50,
         backgroundColor:'#EDF1F5',
-        width:500,
-        // height:750,
+        paddingTop:wp("5%"),
+        paddingLeft:wp("10%"),
+        flex:1,
+        marginTop:wp("10%"),
+        width:wp("100%"),
+     //    height:wp("100%"),
         position:'relative',
-       flex:1,
-    //    width: 400,
-       paddingTop:10,
-       paddingLeft:38,
-       },
-       contentText:{
-           fontSize:12,
-           color:'#777777',
-           marginLeft:-15
-       },
+        overflow:'hidden',
+        },
+        contentText:{
+            fontSize:wp("3.3"),
+            color:'#777777',
+            marginLeft:wp("-5%")
+        },
        mainContainer:{
-           marginLeft:43
+        marginLeft:wp("11%")
        },
        
        mainContainer2:{
-        marginLeft:43,
-        marginTop:1
+        marginLeft:wp("13%")
     },
        rowConatiner:{
            backgroundColor:'#FFFFFF',
            position: 'absolute',
-           marginTop: 18,
-           width:65,
-           height:65,
+           marginTop: wp("5%"),
+           width:wp("20%"),
+           height:wp("20%"),
            borderRadius:100,
            shadowOffset: {width: 0, height: 13}, 
            shadowOpacity: 0.5,
@@ -84,9 +95,9 @@ const styles = StyleSheet.create({
        rowConatiner2:{
         backgroundColor:'#FFFFFF',
         position: 'absolute',
-        marginTop: 10,
-        width:65,
-        height:65,
+        marginTop: wp("5%"),
+        width:wp("20%"),
+        height:wp("20%"),
         borderRadius:100,
         shadowOffset: {width: 0, height: 13}, 
         shadowOpacity: 0.5,
@@ -95,24 +106,25 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     rowConatiner3:{
-     backgroundColor:'#FFFFFF',
-     position: 'absolute',
-     marginTop: 15,
-     width:65,
-     height:65,
-     borderRadius:100,
-     shadowOffset: {width: 0, height: 13}, 
-     shadowOpacity: 0.5,
-     shadowRadius: 6,
-     // android (Android +5.0)
-     elevation: 5,
+        backgroundColor:'#FFFFFF',
+        position: 'absolute',
+        marginTop: wp("5%"),
+        width:wp("20%"),
+        height:wp("20%"),
+        marginLeft:wp("-4%"),
+        borderRadius:100,
+        shadowOffset: {width: 0, height: 13}, 
+        shadowOpacity: 0.5,
+        shadowRadius: 6,
+        // android (Android +5.0)
+        elevation: 5,
  },
  rowConatiner4:{
     backgroundColor:'#FFFFFF',
     position: 'absolute',
-    marginTop: 15,
-    width:65,
-    height:65,
+    marginTop: wp("5%"),
+    width:wp("20%"),
+    height:wp("20%"),
     borderRadius:100,
     shadowOffset: {width: 0, height: 13}, 
     shadowOpacity: 0.5,
@@ -134,6 +146,9 @@ imgtext:{
     },
     nextBtn:{
         color:'#ffffff',
+        fontSize:wp("5%"),
+        marginTop:wp("0.6%"),
+        marginLeft:wp("12%")
       },
       input:{
         // margin: 15,
@@ -146,15 +161,13 @@ imgtext:{
       },
     SectionStyle: {
         flexDirection: 'row',
-        // justifyContent: 'center',
-        // alignItems: 'center',
         backgroundColor: '#FFFFFF',
         borderColor: '#000',
         // height: 40,
         borderRadius: 50 ,
-        marginTop:10,
-        width:325,
-        marginLeft:-20,
+        marginTop:wp("2%"),
+        width:wp("90%"),
+        marginLeft:wp("-5.5%"),
     // borderRadius:100,
     shadowOffset: {width: 0, height: 5}, 
     shadowOpacity: 0.5,
@@ -185,17 +198,22 @@ class GroupListComponents extends Component{
     }
     render(){
         return(
-             <ScrollView >
+             <ScrollView  style={styles.container}>
                 <Image source={require('./img/bg.png')} style={styles.backgroundImage} />
-                <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:30, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.globalgoals()}
-                    style={{color:'#FCDC28'}}>
-                  <Image source={require('./img/arrow.png')} style={{width:30,height:20,marginLeft:15}}/>
+                <View style={styles.loginbtnContainer}>
+                <View style={{marginLeft:wp('-10%')}}>
+                  <Button containerStyle={{paddingTop: wp('8%'),  flex:1,position: 'relative', borderRadius: 4, backgroundColor: 'transparent'}} onPress={() => Actions.signup()}
+                    style={{color: '#FCDC28',fontSize:wp("5%"),width:wp("20%"),}}>
+                  <Image source={require('./img/arrow.png')} style={{width:wp("5%"),height:wp("5%"),marginLeft:wp("4%"),marginTop:wp("-1%")}}/>
                   </Button>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:70,marginTop:15}} />
                   </View>
-                  <View>
-                     <Text style={styles.text}>How do you want to make{"\n"}             <Text style={styles.otherText}>an impact?</Text></Text>
+                  <View  style={{marginLeft:wp('33%'),height:10,marginTop:10}}>
+                  <Image source={require('./img/logo.png')} style={{width: wp('15%'),flex:1, marginTop: wp('-10%')}} />
+                  </View>
+                  </View>
+                  <View styles={styles.textView}>
+                     <Text style={styles.text}>How do you want to make{"\n"}</Text>
+                     <Text style={styles.text2}>an Impact?</Text>
                   </View>
                 {/* <View style={styles.bg}> */}
                     <View style={styles.content}>
@@ -203,95 +221,95 @@ class GroupListComponents extends Component{
                        <View style={styles.SectionStyle}>
                        <Image source={require('./img/search.png')} style={styles.ImageStyle} />
                        <TextInput  style={styles.input}  underlineColorAndroid = "transparent" placeholder = "Search your Favorite Group" placeholderTextColor = "#CDCDCD" onChangeText={(search) => this.setState({search})}
-        value={this.state.search}
-      />
-      </View>
-                         <Row dial={1} flex>
+                        value={this.state.search}
+                        />
+                       </View>
+                         <Row dial={0} flex>
                         <View>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/team.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <View style={styles.rowConatiner}>
+                        <Image source={require('./img/team.png')} style={{width:wp('19%'),height:wp("19.5%"),marginTop:wp("0.5%"),marginLeft:wp("0.7%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,marginLeft:5}}>   Team {"\n"}MyEffect   </Text>
-                        </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/support.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
-                        </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,paddingLeft:15}}>Myffect{"\n"}Support    </Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("5.1%")}}>   Team {"\n"}MyEffect   </Text>
                         </View>
                         <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/social.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <View style={styles.rowConatiner}>
+                        <Image source={require('./img/support.png')} style={{width:wp('20%'),height:wp("19%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,paddingLeft:0}}>Social Works</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("5.5%")}}>Myffect{"\n"}Support    </Text>
+                        </View>
+                        <View style={styles.mainContainer}>
+                        <View style={styles.rowConatiner}>
+                        <Image source={require('./img/social.png')} style={{width:wp('20%'),height:wp("19%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
+                        </View>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Social Works</Text>
                         </View>
                        </Row>
                        {/* Second row */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner2}>
-                        <Image source={require('./img/happy.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <Image source={require('./img/happy.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:78,marginLeft:1}}>Happy Hippie</Text>
-                        </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner2}>
-                        <Image source={require('./img/youth.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
-                        </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:78,marginLeft:-3}}>Youth Council</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Happy Hippie</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner2}>
-                        <Image source={require('./img/wish.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <Image source={require('./img/youth.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:78,marginLeft:1}}>Make-A-Wish{"\n"}  Minnesota</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Youth Council</Text>
+                        </View>
+                        <View style={styles.mainContainer}>
+                        <View style={styles.rowConatiner2}>
+                        <Image source={require('./img/wish.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
+                        </View>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Make-A-Wish{"\n"}  Minnesota</Text>
                         </View>
                        </Row>
                        {/* Third row */}
-                       <Row dial={1} flex>
+                       <Row dial={2} flex>
                         <View>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/oceans.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <View style={styles.rowConatiner3}>
+                        <Image source={require('./img/oceans.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,marginLeft:5}}>Save the     {"\n"} Oceans</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("0.5%")}}>Save the     {"\n"} Oceans</Text>
                         </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/effect.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <View style={styles.mainContainer2}>
+                        <View style={styles.rowConatiner3}>
+                        <Image source={require('./img/effect.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,paddingLeft:15}}> YOU{"\n"}Effect       </Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}> YOU{"\n"}Effect       </Text>
                         </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/calgary.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <View style={styles.mainContainer2}>
+                        <View style={styles.rowConatiner3}>
+                        <Image source={require('./img/calgary.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,marginLeft:0}}>Ecclesiastical{"\n"}   Calgary</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("0.5%")}}>Ecclesiastical{"\n"}   Calgary</Text>
                         </View>
                        </Row>
                        {/* Row 4 */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/change.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <Image source={require('./img/change.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,marginLeft:5}}>Triathlon for {"\n"}   Change</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Triathlon for {"\n"}   Change</Text>
                         </View>
-                        <View style={styles.mainContainer}>
+                        <View style={styles.mainContainer2}>
                         <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/tdsb.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <Image source={require('./img/tdsb.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,paddingLeft:20}}>TDSB    </Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>TDSB    </Text>
                         </View>
-                        <View style={styles.mainContainer}>
+                        <View style={styles.mainContainer2}>
                         <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/country.png')} style={{width:65,height:65,marginTop:0,marginLeft:0,borderRadius:150}}/>
+                        <Image source={require('./img/country.png')} style={{width:wp('20%'),height:wp("20%"),marginTop:wp("0.1%"),marginLeft:wp("0.1%"),borderRadius:150}}/>
                         </View>
-                        <Text style={{color:'#215BA4',fontSize:12,marginTop:85,paddingLeft:10}}>  Sleep{"\n"}Country</Text>
+                        <Text style={{color:'#215BA4',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>  Sleep{"\n"}Country</Text>
                         </View>
                        </Row>
                        <View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:30, marginBottom:30, marginLeft:80, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.nextBtn} onPress={() => Actions.student()}>
-                    Next
+                  <Button containerStyle={{marginTop:wp("6%"), marginLeft:wp("21%"), height:wp('9%'), width:wp("35%"), marginBottom:wp("5%"), overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.nextBtn} onPress={() => Actions.student()}>
+                  <Text style={styles.nextBtn}>Next</Text>
                   </Button>
                        </View>
                     </View>

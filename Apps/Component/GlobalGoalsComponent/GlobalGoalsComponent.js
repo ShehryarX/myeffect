@@ -3,35 +3,48 @@ import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView,  Dimensions,
 import Button from 'react-native-button';
 import Row from 'react-native-row'; 
 import { Actions } from 'react-native-router-flux'; // New code
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width: wp('100%'),
+        height: hp('100%'),
+        backgroundColor:'#EDF1F5'
        },
       backgroundImage: {
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
-        // marginTop:10,
-        height:300,
-        // justifyContent: 'flex-end',
-        // width:370,
+        width: wp('100%'),
+        height:wp('50%'),
       },
       loginbtnContainer:{
-        position:'relative',
-        paddingLeft:10,
-        width:250,
-        flexDirection: 'row',
+        flex: 1,
+        position: 'absolute',
+        marginLeft: moderateScale(40),
       },
-      text:{
-        marginTop:10,
-        marginLeft:65,
-        fontSize:21,
+      textView: {
+        // paddingTop: 80,
+        // width: 100,
+        // height: 100,
+        // backgroundColor: '#ffffff',
+        // marginTop:wp("40%")
+      },
+       text:{
+        marginTop:wp("25%"),
+        marginLeft:wp('22%'),
+        width: wp('100%'),
+        fontSize:wp("5%"),
+        color: '#ffffff',
+       },
+       text2:{
+        marginTop:wp("-2%"),
+        marginLeft:wp('38%'),
+        width: wp('100%'),
+        fontSize:wp("5%"),
         color: '#ffffff',
        },
        bg:{
@@ -44,23 +57,22 @@ const styles = StyleSheet.create({
 
        },      
        content:{
-
-        marginTop:50,
-        backgroundColor:'#EDF1F5',
-        width:500,
-        // height:750,
-        position:'relative',
+       backgroundColor:'#EDF1F5',
+       paddingTop:wp("5%"),
+       paddingLeft:wp("10%"),
        flex:1,
-    //    width: 400,
-       paddingTop:10,
-       paddingLeft:38,
+       marginTop:wp("10%"),
+       width:wp("100%"),
+    //    height:wp("100%"),
+       position:'relative',
+       overflow:'hidden',
        },
        contentText:{
-           fontSize:12,
+           fontSize:wp("3.3"),
            color:'#777777',
        },
        mainContainer:{
-           marginLeft:43
+           marginLeft:wp("10%")
        },
        mainContainer2:{
         marginLeft:43,
@@ -69,9 +81,9 @@ const styles = StyleSheet.create({
        rowConatiner:{
            backgroundColor:'#FFFFFF',
            position: 'absolute',
-           marginTop: 18,
-           width:65,
-           height:65,
+           marginTop: wp("5%"),
+           width:wp("20%"),
+           height:wp("20%"),
            borderRadius:100,
            shadowOffset: {width: 0, height: 13}, 
            shadowOpacity: 0.5,
@@ -82,9 +94,9 @@ const styles = StyleSheet.create({
        rowConatiner2:{
         backgroundColor:'#FFFFFF',
         position: 'absolute',
-        marginTop: 10,
-        width:65,
-        height:65,
+        marginTop: wp("5%"),
+        width:wp("20%"),
+        height:wp("20%"),
         borderRadius:100,
         shadowOffset: {width: 0, height: 13}, 
         shadowOpacity: 0.5,
@@ -95,9 +107,9 @@ const styles = StyleSheet.create({
     rowConatiner3:{
      backgroundColor:'#FFFFFF',
      position: 'absolute',
-     marginTop: 15,
-     width:65,
-     height:65,
+     marginTop: wp("5%"),
+     width:wp("20%"),
+     height:wp("20%"),
      borderRadius:100,
      shadowOffset: {width: 0, height: 13}, 
      shadowOpacity: 0.5,
@@ -108,9 +120,9 @@ const styles = StyleSheet.create({
  rowConatiner4:{
     backgroundColor:'#FFFFFF',
     position: 'absolute',
-    marginTop: 15,
-    width:65,
-    height:65,
+    marginTop: wp("5%"),
+    width:wp("20%"),
+    height:wp("20%"),
     borderRadius:100,
     shadowOffset: {width: 0, height: 13}, 
     shadowOpacity: 0.5,
@@ -121,9 +133,9 @@ const styles = StyleSheet.create({
 rowConatiner5:{
    backgroundColor:'#FFFFFF',
    position: 'absolute',
-   marginTop: 15,
-   width:65,
-   height:65,
+   marginTop: wp("5%"),
+   width:wp("20%"),
+   height:wp("20%"),
    borderRadius:100,
    shadowOffset: {width: 0, height: 13}, 
    shadowOpacity: 0.5,
@@ -134,9 +146,9 @@ rowConatiner5:{
 rowConatiner6:{
    backgroundColor:'#FFFFFF',
    position: 'absolute',
-   marginTop: 15,
-   width:65,
-   height:65,
+   marginTop: wp("5%"),
+   width:wp("20%"),
+   height:wp("20%"),
    borderRadius:100,
    shadowOffset: {width: 0, height: 13}, 
    shadowOpacity: 0.5,
@@ -152,12 +164,15 @@ rowimg:{
     },
 imgtext:{
     color:'red',
-    fontSize:12,
-    marginTop:83,
-    marginLeft:5
+    fontSize:wp("3%"),
+    marginTop:wp("25%"),
+    marginLeft:wp("2.5%")
     },
     nextBtn:{
         color:'#ffffff',
+        fontSize:wp("5%"),
+        marginTop:wp("0.6%"),
+        marginLeft:wp("12%")
       },
   });
 
@@ -174,17 +189,22 @@ class GlobalGoalsComponents extends Component{
             {label: 'param1', value: 0 },
           ];
         return(
-             <ScrollView >
+             <ScrollView style={styles.container}>
                 <Image source={require('./img/bg.png')} style={styles.backgroundImage} />
                 <View style={styles.loginbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:30, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.signup()}
-                    style={{color:'#FCDC28'}}>
-                  <Image source={require('./img/arrow.png')} style={{width:30,height:20,marginLeft:15}}/>
+                <View style={{marginLeft:wp('-10%')}}>
+                  <Button containerStyle={{paddingTop: wp('8%'),  flex:1,position: 'relative', borderRadius: 4, backgroundColor: 'transparent'}} onPress={() => Actions.signup()}
+                    style={{color: '#FCDC28',fontSize:wp("5%"),width:wp("20%"),}}>
+                  <Image source={require('./img/arrow.png')} style={{width:wp("5%"),height:wp("5%"),marginLeft:wp("4%"),marginTop:wp("-1%")}}/>
                   </Button>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:70,marginTop:15}} />
                   </View>
-                  <View>
-                     <Text style={styles.text}>How do you want to make{"\n"}             <Text style={styles.otherText}>an impact?</Text></Text>
+                  <View  style={{marginLeft:wp('33%'),height:10,marginTop:10}}>
+                  <Image source={require('./img/logo.png')} style={{width: wp('15%'),flex:1, marginTop: wp('-10%')}} />
+                  </View>
+                  </View>
+                  <View styles={styles.textView}>
+                     <Text style={styles.text}>How do you want to make{"\n"}</Text>
+                     <Text style={styles.text2}>an Impact?</Text>
                   </View>
                 {/* <View style={styles.bg}> */}
                     <View style={styles.content}>
@@ -192,125 +212,125 @@ class GlobalGoalsComponents extends Component{
                        <Row dial={1} flex>
                        <View>
                         <View style={styles.rowConatiner}>
-                        <Image source={require('./img/noPoverty.png')} style={{width:55,height:25,marginTop:20,marginLeft:5}}/>
+                        <Image source={require('./img/noPoverty.png')} style={{width:wp('18%'),height:wp("8%"),marginTop:wp("5.5%"),marginLeft:wp("1%")}}/>
                         </View>
                         <Text style={styles.imgtext}>No Poverty</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner}>
-                        <Image source={require('./img/zeroHunger.png')} style={{width:50,height:40,marginTop:10,marginLeft:7}}/>
+                        <Image source={require('./img/zeroHunger.png')} style={{width:wp('15%'),height:wp("12%"),marginTop:wp("3.5%"),marginLeft:wp("2.7%")}}/>
                         </View>
-                        <Text style={{color:'#D5A600',fontSize:12,marginTop:83,marginLeft:1}}>Zero Hunger</Text>
+                        <Text style={{color:'#D5A600',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Zero Hunger</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner}>
-                        <Image source={require('./img/goodHealth.png')} style={{width:50,height:40,marginTop:10,marginLeft:7}}/>
+                        <Image source={require('./img/goodHealth.png')} style={{width:wp('15%'),height:wp("12%"),marginTop:wp("3.5%"),marginLeft:wp("2.7%")}}/>
                         </View>
-                        <Text style={{color:'#00A94A',fontSize:12,marginTop:83,marginLeft:1}}>Good Health{"\n"}& Well-being</Text>
+                        <Text style={{color:'#00A94A',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Good Health{"\n"}& Well-being</Text>
                         </View>
                        </Row>
                        {/* Second row */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner2}>
-                        <Image source={require('./img/education.png')} style={{width:40,height:40,marginTop:8,marginLeft:14}}/>
+                        <Image source={require('./img/education.png')} style={{width:wp('15%'),height:wp("15%"),marginTop:wp("0.5%"),marginLeft:wp("2.7%")}}/>
                         </View>
-                        <Text style={{color:'#D20024',fontSize:12,marginTop:78,marginLeft:1}}>     Quality {"\n"}   Education</Text>
-                        </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner2}>
-                        <Image source={require('./img/gender.png')} style={{width:33,height:45,marginTop:10,marginLeft:18}}/>
-                        </View>
-                        <Text style={{color:'#FF0000',fontSize:12,marginTop:78,marginLeft:-8}}>Gender Equality</Text>
+                        <Text style={{color:'#D20024',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>     Quality {"\n"}   Education</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner2}>
-                        <Image source={require('./img/cleanWater.png')} style={{width:28,height:40,marginTop:15,marginLeft:19}}/>
+                        <Image source={require('./img/gender.png')} style={{width:wp('11%'),height:wp("13.5%"),marginTop:wp("3.5%"),marginLeft:wp("4.5%")}}/>
                         </View>
-                        <Text style={{color:'#00A9DC',fontSize:12,marginTop:78,marginLeft:1}}>Clean Water {"\n"}& Sanitation</Text>
+                        <Text style={{color:'#FF0000',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Gender Equality</Text>
+                        </View>
+                        <View style={styles.mainContainer}>
+                        <View style={styles.rowConatiner2}>
+                        <Image source={require('./img/cleanWater.png')} style={{width:wp('10%'),height:wp("13.4%"),marginTop:wp("3.8%"),marginLeft:wp("4.9%")}}/>
+                        </View>
+                        <Text style={{color:'#00A9DC',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Clean Water {"\n"}& Sanitation</Text>
                         </View>
                        </Row>
                        {/* Third row */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner3}>
-                        <Image source={require('./img/cleanEnergy.png')} style={{width:45,height:40,marginTop:12,marginLeft:11}}/>
+                        <Image source={require('./img/cleanEnergy.png')} style={{width:wp('15%'),height:wp("13%"),marginTop:wp("3.5%"),marginLeft:wp("2.3%")}}/>
                         </View>
-                        <Text style={{color:'#FFBE00',fontSize:12,marginTop:85,marginLeft:1}}>Affordable &{"\n"}Clean Energy</Text>
-                        </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner3}>
-                        <Image source={require('./img/decentWork.png')} style={{width:34,height:38,marginTop:10,marginLeft:16}}/>
-                        </View>
-                        <Text style={{color:'#9A0034',fontSize:12,marginTop:85,marginLeft:2}}>Decent Work{"\n"}& Economic{"\n"}    Growth</Text>
+                        <Text style={{color:'#FFBE00',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Affordable &{"\n"}Clean Energy</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner3}>
-                        <Image source={require('./img/industry.png')} style={{width:35,height:37,marginTop:12,marginLeft:16}}/>
+                        <Image source={require('./img/decentWork.png')} style={{width:wp('12.5%'),height:wp("12%"),marginTop:wp("2.5%"),marginLeft:wp("3.4%")}}/>
                         </View>
-                        <Text style={{color:'#FF6000',fontSize:12,marginTop:85,marginLeft:5}}>   Industry,{"\n"}Innovation &{"\n"}Infrastructure</Text>
+                        <Text style={{color:'#9A0034',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Decent Work{"\n"}& Economic{"\n"}    Growth</Text>
+                        </View>
+                        <View style={styles.mainContainer}>
+                        <View style={styles.rowConatiner3}>
+                        <Image source={require('./img/industry.png')} style={{width:wp('12.8%'),height:wp("14%"),marginTop:wp("2.5%"),marginLeft:wp("3.5%")}}/>
+                        </View>
+                        <Text style={{color:'#FF6000',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>   Industry,{"\n"}Innovation &{"\n"}Infrastructure</Text>
                         </View>
                        </Row>
                        {/* Row 4 */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/reduce.png')} style={{width:45,height:40,marginTop:12,marginLeft:11}}/>
+                        <Image source={require('./img/reduce.png')} style={{width:wp('15%'),height:wp("13%"),marginTop:wp("2.8%"),marginLeft:wp("2.5%")}}/>
                         </View>
-                        <Text style={{color:'#F6007E',fontSize:12,marginTop:85,marginLeft:5}}>   Reduce {"\n"}Inequalities</Text>
-                        </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/community.png')} style={{width:34,height:38,marginTop:10,marginLeft:16}}/>
-                        </View>
-                        <Text style={{color:'#FF9E00',fontSize:12,marginTop:85,marginLeft:2}}>Sustainable{"\n"}    Cities &{"\n"}Community</Text>
+                        <Text style={{color:'#F6007E',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>   Reduce {"\n"}Inequalities</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner4}>
-                        <Image source={require('./img/responsible.png')} style={{width:35,height:37,marginTop:12,marginLeft:16}}/>
+                        <Image source={require('./img/community.png')} style={{width:wp('15%'),height:wp("13%"),marginTop:wp("2.8%"),marginLeft:wp("2.5%")}}/>
                         </View>
-                        <Text style={{color:'#D49000',fontSize:12,marginTop:85,marginLeft:5}}>Responsible,{"\n"}Consumption{"\n"}& Production</Text>
+                        <Text style={{color:'#FF9E00',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Sustainable{"\n"}    Cities &{"\n"}Community</Text>
+                        </View>
+                        <View style={styles.mainContainer}>
+                        <View style={styles.rowConatiner4}>
+                        <Image source={require('./img/responsible.png')} style={{width:wp('12%'),height:wp("13%"),marginTop:wp("3%"),marginLeft:wp("4.5%")}}/>
+                        </View>
+                        <Text style={{color:'#D49000',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Responsible,{"\n"}Consumption{"\n"}& Production</Text>
                         </View>
                        </Row>
                        {/* Row 5 */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner5}>
-                        <Image source={require('./img/climate.png')} style={{width:45,height:25,marginTop:20,marginLeft:11}}/>
+                        <Image source={require('./img/climate.png')} style={{width:wp('15%'),height:wp("8%"),marginTop:wp("5.5%"),marginLeft:wp("2.5%")}}/>
                         </View>
-                        <Text style={{color:'#30803F',fontSize:12,marginTop:85,marginLeft:5}}>   Reduce {"\n"}Inequalities</Text>
-                        </View>
-                        <View style={styles.mainContainer}>
-                        <View style={styles.rowConatiner5}>
-                        <Image source={require('./img/life.png')} style={{width:34,height:30,marginTop:18,marginLeft:16}}/>
-                        </View>
-                        <Text style={{color:'#0070BE',fontSize:12,marginTop:85,marginLeft:2}}>Sustainable{"\n"}    Cities &{"\n"}Community</Text>
+                        <Text style={{color:'#30803F',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>   Reduce {"\n"}Inequalities</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner5}>
-                        <Image source={require('./img/lifeonland.png')} style={{width:35,height:37,marginTop:12,marginLeft:16}}/>
+                        <Image source={require('./img/life.png')} style={{width:wp('15%'),height:wp("13%"),marginTop:wp("2.8%"),marginLeft:wp("2.5%")}}/>
                         </View>
-                        <Text style={{color:'#00C04A',fontSize:12,marginTop:85,marginLeft:5}}>Responsible,{"\n"}Consumption{"\n"}& Production</Text>
+                        <Text style={{color:'#0070BE',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Sustainable{"\n"}    Cities &{"\n"}Community</Text>
+                        </View>
+                        <View style={styles.mainContainer}>
+                        <View style={styles.rowConatiner5}>
+                        <Image source={require('./img/lifeonland.png')} style={{width:wp('15%'),height:wp("13%"),marginTop:wp("2.8%"),marginLeft:wp("2.5%")}}/>
+                        </View>
+                        <Text style={{color:'#00C04A',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Responsible,{"\n"}Consumption{"\n"}& Production</Text>
                         </View>
                        </Row>
                        {/* Row6 */}
                        <Row dial={1} flex>
                         <View>
                         <View style={styles.rowConatiner6}>
-                        <Image source={require('./img/peace.png')} style={{width:45,height:25,marginTop:20,marginLeft:11}}/>
+                        <Image source={require('./img/peace.png')} style={{width:wp('15%'),height:wp("13%"),marginTop:wp("2.8%"),marginLeft:wp("2.5%")}}/>
                         </View>
-                        <Text style={{color:'#0F4A8C',fontSize:12,marginTop:80,marginLeft:0}}>Peace, Justice{"\n"}    & Strong{"\n"}   Instituions</Text>
+                        <Text style={{color:'#0F4A8C',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Peace, Justice{"\n"}    & Strong{"\n"}   Instituions</Text>
                         </View>
                         <View style={styles.mainContainer}>
                         <View style={styles.rowConatiner6}>
-                        <Image source={require('./img/partnership.png')} style={{width:34,height:30,marginTop:18,marginLeft:16}}/>
+                        <Image source={require('./img/partnership.png')} style={{width:wp('15%'),height:wp("14%"),marginTop:wp("2.8%"),marginLeft:wp("2.5%")}}/>
                         </View>
-                        <Text style={{color:'#292F6D',fontSize:12,marginTop:80,marginLeft:2}}>Partnerships{"\n"}for the Goals</Text>
+                        <Text style={{color:'#292F6D',fontSize:wp("3%"),marginTop:wp("25%"),marginLeft:wp("2.5%")}}>Partnerships{"\n"}for the Goals</Text>
                         </View>
                        </Row>
                        <View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:30, marginBottom:30, marginLeft:80, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.nextBtn} onPress={() => Actions.grouplist()}>
-                    Next
+                  <Button containerStyle={{marginTop:wp("6%"), marginLeft:wp("21%"), height:wp('9%'), width:wp("35%"), marginBottom:wp("5%"), overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.nextBtn} onPress={() => Actions.grouplist()}>
+                    <Text style={styles.nextBtn}>Next</Text>
                   </Button>
                        </View>
                     </View>

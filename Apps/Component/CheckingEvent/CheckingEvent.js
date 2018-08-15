@@ -2,65 +2,65 @@ import React,{Component} from 'react';
 import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView,  Dimensions, KeyboardAvoidingView,TextInput} from 'react-native';
 import Button from 'react-native-button';
 import { Actions } from 'react-native-router-flux'; // New code
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width: wp('100%'),
+        height: hp('100%'),
+        backgroundColor:'#EDF1F5'
        },
       backgroundImage: {
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
-        // marginTop:10,
-        height:300,
-        // justifyContent: 'flex-end',
-        // width:370,
+        width: wp('100%'),
+        height:wp('30%'),
       },
-      arrowbtnContainer:{
-        position:'relative',
-        paddingLeft:10,
-        width:250,
-        flexDirection: 'row',
+      loginbtnContainer:{
+        flex: 1,
+        position: 'absolute',
+        marginLeft: moderateScale(40),
       },
       content:{
-        marginTop:0,
         backgroundColor:'#EDF1F5',
-        width:500,
-        // height:750,
+        paddingTop:wp("5%"),
+        paddingLeft:wp("10%"),
+        flex:1,
+        marginTop:wp("25%"),
+        width:wp("100%"),
+     //    height:wp("100%"),
         position:'relative',
-       flex:1,
-    //    width: 400,
-       paddingTop:10,
-       paddingLeft:38,
+        overflow:'hidden',
        },
        firsttext:{
-           paddingTop:10,
-           paddingLeft:40,
+           paddingTop:wp("2%"),
+           paddingLeft:wp("12%"),
+           fontSize:wp("4%"),
            color:'#9EA0A1'
        },
        secondtext:{
          color:'#ACAEAE',
-         paddingTop:30,
-         paddingLeft:30
+         fontSize:wp("4%"),
+         paddingTop:wp("8%"),
+         paddingLeft:wp("10%")
        },
        mindright:{
-           width:45,
-           height:45,
-           marginLeft:30,
-           marginTop:6,
+           width:wp('14%'),
+           height:wp("14%"),
+           marginLeft:wp("10%"),
+           marginTop:wp("1%"),
            borderRadius:100,
        },
        container1:{
-           width:325,
-           marginTop:10,
-           marginLeft:-20,
+           width:wp("90%"),
+           marginTop:wp("1.8%"),
+           marginLeft:wp("-4%"),
            backgroundColor:'#FFFFFF',
-           height:60,
+           height:wp("17%"),
            shadowOffset: {width: 0, height: 5}, 
            shadowOpacity: 0.5,
            shadowRadius: 4,
@@ -72,48 +72,57 @@ const styles = StyleSheet.create({
        },
        containertext1:{
            color:'#1B499B',
-           marginTop:-47,
-           marginLeft:100,
+           marginTop:wp("-14%"),
+           marginLeft:wp("27%"),
+           fontSize:wp("4%")
        },
        containertext2:{
         color:'#1B499B',
-        marginTop:-41,
-        marginLeft:100,
+        marginTop:wp("-14%"),
+        marginLeft:wp("27%"),
+        fontSize:wp("4%")
     },
     containertext3:{
         color:'#1B499B',
-        marginTop:-41,
-        marginLeft:100,
+        marginTop:wp("-14%"),
+        marginLeft:wp("27%"),
+        fontSize:wp("4%")
     },
        greentick:{
-           width:35,
-           height:35,
-           marginLeft:270,
-          marginTop:-43
+           width:wp("10%"),
+           height:wp("10%"),
+           marginLeft:wp("75%"),
+          marginTop:wp("-12.5%")
        },
        greentick2:{
-        width:35,
-        height:35,
-        marginLeft:270,
-       marginTop:-33
+        width:wp("10%"),
+        height:wp("10%"),
+        marginLeft:wp("75%"),
+       marginTop:wp("-8%")
     },
     greentick3:{
-        width:35,
-        height:35,
-        marginLeft:270,
-       marginTop:-33
+        width:wp("10%"),
+        height:wp("10%"),
+        marginLeft:wp("75%"),
+       marginTop:wp("-8%")
     },
     checkbtn:{
         color:'#ffffff',
-        fontSize:13
+        fontSize:wp("3.5%"),
+        marginTop:wp("3%"),
+        marginLeft:wp("7.5%")
     },
     lasttxt:{
         color:'#9EA0A1',
-        marginTop:50,
-        marginLeft:62
+        marginTop:wp("13%"),
+        fontSize:wp("4%"),
+        marginLeft:wp("20%")
     },
     skipbtn:{
         color:'#ffffff',
+        fontSize:wp("5%"),
+        marginTop:wp("2%"),
+        marginLeft:wp("13%")
     },
     })
 
@@ -126,13 +135,18 @@ class CheckingEvent extends Component{
         return(
             // <ScrollView>
             <View style={styles.container}>
+            <View style={styles.container}>
             <Image source={require('./img/bg.png')} style={styles.backgroundImage} />
-                <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:30, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.student()}
-                    style={{color:'#FCDC28'}}>
-                  <Image source={require('./img/arrow.png')} style={{width:30,height:20,marginLeft:15}}/>
+                <View style={styles.loginbtnContainer}>
+                <View style={{marginLeft:wp('-10%')}}>
+                  <Button containerStyle={{paddingTop: wp('8%'),  flex:1,position: 'relative', borderRadius: 4, backgroundColor: 'transparent'}} onPress={() => Actions.grouplist()}
+                    style={{color: '#FCDC28',fontSize:wp("5%"),width:wp("20%")}}>
+                  <Image source={require('./img/arrow.png')} style={{width:wp("5%"),height:wp("5%"),marginLeft:wp("4%"),marginTop:wp("-1%")}}/>
                   </Button>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:70,marginTop:15}} />
+                  </View>
+                  <View  style={{marginLeft:wp('33%'),height:10,marginTop:10}}>
+                  <Image source={require('./img/logo.png')} style={{width: wp('15%'),flex:1, marginTop: wp('-10%')}} />
+                  </View>
                   </View>
                   <View style={styles.content}>
                   <Text style={styles.firsttext}>Are you Checking into an event?</Text>
@@ -158,14 +172,15 @@ class CheckingEvent extends Component{
                       <Image source={require('./img/tick.png')} style={styles.greentick3}/>
                       </View>
                   </View>
-                  <Button containerStyle={{padding:10, width:120, marginTop:20, marginLeft:78, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.checkbtn}>
-                    Check-In-Now
+                  <Button containerStyle={{marginTop:wp("4%"), marginLeft:wp("23%"), height:wp('11%'), width:wp("36%"), overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.checkbtn}>
+                    <Text style={styles.checkbtn}>Check-In-Now</Text>
                   </Button>
                   <Text style={styles.lasttxt}>Not part of these actions?</Text>
-                  <Button containerStyle={{padding:10, width:120, marginTop:20, marginLeft:78, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.skipbtn} onPress={() => Actions.newsfeed()}>
-                    Skip
+                  <Button containerStyle={{marginTop:wp("4%"), marginLeft:wp("23%"), height:wp('11%'), width:wp("36%"), marginBottom:wp("5%"), overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.skipbtn} onPress={() => Actions.newsfeed()}>
+                    <Text style={styles.skipbtn}>Skip</Text>
                   </Button>
                   </View>
+            </View>
             </View>
             // </ScrollView>
         )

@@ -30,13 +30,8 @@ const styles = StyleSheet.create({
       },
       loginbtnContainer:{
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
         position: 'absolute',
         marginLeft: moderateScale(40),
-        // marginTop: -370,
-        // width: SCREEN_WIDTH,
-        // flexDirection: 'row',
       },
       textView: {
         // paddingTop: 80,
@@ -67,7 +62,6 @@ const styles = StyleSheet.create({
         height:wp("100%"),
         position:'relative',
         overflow:'hidden',
-
        },   
        form:{
        flex:1,
