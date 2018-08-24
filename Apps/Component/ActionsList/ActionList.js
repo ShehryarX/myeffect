@@ -4,34 +4,34 @@ import Button from 'react-native-button';
 import Row from 'react-native-row'; 
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button' // Radio Button
 import { Actions } from 'react-native-router-flux'; // New code
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width: wp('100%'),
+        height: hp('100%'),
+        backgroundColor:"white",
        },
        arrowbtnContainer:{
         position:'relative',
-        paddingLeft:10,
+        paddingLeft:wp("2%"),
         flexDirection: 'row',
         
       },
       profiletxt:{
-          fontSize:12,
-          color:'#00B0F5',
-          marginTop:-25,
-          marginLeft:50,
+        fontSize:wp("3%"),
+        color:'#00B0F5',
+        marginTop:wp("-6%"),
+        marginLeft:wp("14%"),
       },
       actions:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#00B0F5',
-        marginTop:-15,
-        marginLeft:45,
+        marginTop:wp("-1%"),
+        marginLeft:wp("13%"),
     },
     line:{
         color:'#00B0F5',
@@ -40,24 +40,26 @@ const styles = StyleSheet.create({
         marginLeft:15
       },
       challenges:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-59,
-        marginLeft:140
+        marginTop:wp("-17"),
+        marginLeft:wp("40%")
       },
       groups:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-59,
-        marginLeft:260
+        marginTop:wp("-17%"),
+        marginLeft:wp("74%")
       },
       line2:{
         color:'#EDF1F5',
-        marginTop:-27
+        marginTop:wp("-6%"),
+        fontSize:wp("3%")
       },
       line3:{
         color:'#EDF1F5',
-        marginTop:0
+        marginTop:wp("0.1%"),
+        fontSize:wp("3%")
       },
       SectionStyle: {
         flexDirection: 'row',
@@ -65,8 +67,8 @@ const styles = StyleSheet.create({
         borderColor: '#000',
         // height: 40,
         borderRadius: 10,
-        marginTop:10,
-        width:325,
+        marginTop:wp("1%"),
+        width:wp("93%"),
         marginLeft:17,
     // borderRadius:100,
     shadowOffset: {width: 0, height: 5}, 
@@ -74,20 +76,23 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     // android (Android +5.0)
     elevation: 5,
-        margin: 10
+        margin: wp("1%")
     },
     ImageStyle: {
-        marginLeft: 7,
-        marginTop:9,
-        height: 18,
-        width: 28,
+        marginLeft: wp("2%"),
+        marginTop:wp('2%'),
+        height: wp("6%"),
+        width: wp("6%"),
         resizeMode : 'stretch',
     },
     ImageStyle2: {
+        height: wp("8%"),
+        width: wp("8%"),
+        // resizeMode : 'stretch',
+    },
+    filterbtn:{
         marginTop:4,
-        height: 28,
-        width: 28,
-        resizeMode : 'stretch',
+        marginLeft:wp("29%"),
     },
     input:{
         width:150,
@@ -97,25 +102,25 @@ const styles = StyleSheet.create({
       },
       middletxt:{
         color:'#1B499B',
-        marginTop:-65,
-        fontSize:16,
-        marginLeft:90
+        marginTop:wp("-16"),
+        fontSize:wp("4%"),
+        marginLeft:wp("22%")
     },
     person:{
-        marginTop:-10,
-        marginLeft:49
+        marginTop:wp("-2%"),
+        marginLeft:wp("15%")
     },
     persontxt:{
         color:'#00B0F5',
-        fontSize:11,
-        marginLeft:13
+        fontSize:wp("3%"),
+        marginLeft:wp("1.5%")
     },
     modalContainer:{
         backgroundColor:'#EDF1F5',
-        position: 'absolute',
-        marginTop: 112,
-        marginLeft:16,
-        width:327,
+        position: 'relative',
+        marginTop: wp("32%"),
+        marginLeft:wp("4%"),
+        width:wp("94%"),
         // opacity:0.7,
         height:300,
         borderRadius:10,
@@ -127,71 +132,73 @@ const styles = StyleSheet.create({
     },
     filterActions:{
         color:'#235CA5',
-        fontSize:17,
-        marginTop:10,
-        marginLeft:110
+        fontSize:wp("5%"),
+        marginTop:wp("2%"),
+        marginLeft:wp("30%")
     },
     filterimg:{
-        height: 28,
-        width: 28,
+        height: wp("8%"),
+        width: wp("8%"),
     },
     filterimgcontainer:{
-        marginTop:-25,
-        marginLeft:290
+        marginTop:wp("-8"),
+        marginLeft:wp("84%")
     },
     categoryText:{
         color:"#235CA5",
-        fontSize:15,
-        marginLeft:30
+        fontSize:wp('4%'),
+        marginLeft:wp("10%")
     },
     arrowdownCategory:{
-        width:20,
-        height:20
+        width:wp("7%"),
+        height:wp("7%")
     },
     arrowdownCategoryContainer:{
-        marginTop:-18,
-        marginLeft:100,
+        marginTop:wp("-5%"),
+        marginLeft:wp("30%"),
     },
     filledCircleImg:{
-        marginLeft:30,
-        marginTop:8,
-        width:17,
-        height:17
+        marginLeft:wp("10%"),
+        marginTop:wp("2%"),
+        width:wp("5%"),
+        height:wp("5%")
     },
     categoryAllText:{
         color:'#235CA5',
-        marginLeft:60,
-        marginTop:-18
+        marginLeft:wp("20%"),
+        marginTop:wp("-5%"),
+        fontSize:wp("4%")
     },
     actionTypeText:{
         color:"#235CA5",
-        fontSize:15,
-        marginTop:45,
-        marginLeft:30
+        marginTop:wp('14%'),
+        fontSize:wp('4%'),
+        marginLeft:wp("10%")
     },
     arrowdownActionType:{
-        width:20,
-        height:20
+        width:wp("7%"),
+        height:wp("7%")
     },
     actionarrowdowncontainer:{
-        marginTop:-18,
-        marginLeft:120,
+        marginTop:wp("-5%"),
+        marginLeft:wp("33%"),
     },
     ActionTypeAllText:{
         color:'#235CA5',
-        marginLeft:60,
-        marginTop:-18
+        marginLeft:wp("20%"),
+        marginTop:wp("-5%"),
+        fontSize:wp("4%")
     },
     findActionbtn:{
         color:'#235CA5',
     },
     radioGroup:{
-        marginLeft:20,
-        marginTop:-5
+        marginLeft:wp("6%"),
+        marginTop:wp("-1%")
     },
     CategoryRadioBtn:{
-        marginTop:0,
-        marginBottom:-11
+        marginTop:wp("0.1%"),
+        marginBottom:wp('-1%')
     },
     categoryRadioBtnText:{
         color:"#235CA5",
@@ -236,36 +243,36 @@ class ActionsList extends Component{
     render(){
         const {modalVisible,categorybtn,actionTypebtn,categoryAll,ActionTypeAll} = this.state
         return(
-            // <ScrollView>
-            <View style={styles.container}>
+            <ScrollView style={styles.container}>
+            {/* <View style={styles.container}> */}
             <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:30, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
+                  <Button containerStyle={{marginLeft:wp("-1%"), paddingTop:wp("8%"), width:wp("22%"), position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
                     style={{color:'#FCDC28'}}>
                     <View>
-                  <Image source={require('./img/profileimg.png')} style={{width:30,marginTop:4,height:30,marginLeft:15,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/profileimg.png')} style={{width:wp("8%"),marginTop:wp("1%"),height:wp("8%"),marginLeft:wp("4%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                       <Text style={styles.profiletxt}>2400</Text>
                   </View>
                   </Button>
-                  <Image source={require('./img/coin.png')} style={{width:13,height:13,marginTop:42}}/>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:60,marginTop:15}} />
-                  <Image source={require('./img/bell.png')} style={{width:30,height:30,marginLeft:90,marginTop:33}} />
+                  <Image source={require('./img/coin.png')} style={{width:wp("4%"),height:wp("4%"),marginTop:wp("11%")}}/>
+                  <Image source={require('./img/logo.png')} style={{width:wp("18.5%"),height:wp("18.5%"),marginLeft:wp("18%"),marginTop:wp("5%")}} />
+                  <Image source={require('./img/bell.png')} style={{width:wp("9%"),height:wp("9%"),marginLeft:wp("25%"),marginTop:wp("8%")}} />
                   </View>
                   <View>
                      <Text style={styles.actions}>Actions</Text>
-                     <Text style={{marginLeft:45,color:'#00B0F5',fontSize:45,marginTop:-24,}}>──</Text>
+                     <Text style={{marginLeft:wp("12.5%"),color:'#00B0F5',fontSize:wp("12.5%"),marginTop:wp('-6.5%')}}>──</Text>
                      <View>
                      <Text style={styles.challenges}>Challenges</Text>
                      </View>
                      <View>
                      <Text style={styles.groups}>Groups</Text>
                      </View>  
-                     <Text style={styles.line2}>────────────────────────────────────</Text>                
+                     <Text style={styles.line2}>────────────────────────────────────────────────</Text>                
                   </View>
                   <View style={styles.SectionStyle}>
                        <Image source={require('./img/search.png')} style={styles.ImageStyle} />
                        <TextInput  style={styles.input}  underlineColorAndroid = "transparent"  placeholderTextColor = "#CDCDCD" onChangeText={(search) => this.setState({search})} value={this.state.search} />
-                  <View style={{marginLeft: 90,}}>
-                  <Button onPress={this.setModalVisible}>
+                  <View style={styles.filterbtn}>
+                  <Button  onPress={this.setModalVisible}>
                      <Image source={require('./img/filter.png')} style={styles.ImageStyle2} />
                      </Button>
                   </View>
@@ -389,7 +396,7 @@ class ActionsList extends Component{
                         <Text style={styles.ActionTypeAllText}>All</Text>  
                         </View>
                     }
-                     <Button containerStyle={{padding:8, width:130, marginTop:50, marginBottom:20, marginLeft:100, overflow:'hidden', borderRadius:100, backgroundColor: '#FEE000'}} style={styles.findActionbtn} onPress={() => Actions.actionlist()}>
+                     <Button containerStyle={{padding:wp("2%"), width:wp("35%"), marginTop:wp("15%"), marginBottom:wp("8%"), marginLeft:wp("30%"), overflow:'hidden', borderRadius:100, backgroundColor: '#FEE000'}} style={styles.findActionbtn} onPress={() => Actions.actionlist()}>
                     Find Action
                   </Button>
                   </ScrollView>
@@ -403,111 +410,111 @@ class ActionsList extends Component{
                       {/* <Button onPress={() => Actions.globalgoals()}> */}
                        <View>
                        <TouchableOpacity onPress={() => Actions.shiftcomponent()}>
-                  <Image source={require('./img/parkday.png')}  style={{width:60,marginTop:7,height:60,marginLeft:20,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/parkday.png')}  style={{width:wp("17%"),marginTop:wp("5%"),height:wp("17%"),marginLeft:wp("3%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                   <View>
                   <Text style={styles.middletxt}>Love your Park Day - Lardner's{'\n'}Point Park (Tacony)</Text>
-                  <Image source={require('./img/coin.png')}  style={{width:25,marginTop:-30,height:25,marginLeft:322, borderRadius:100}}/>
-                  <Text style={{marginTop:-23,marginLeft:331,color:'#1B499B',}}>5</Text>
-                  <Text style={{color:'#696969',marginTop:10,marginLeft:90,fontSize:13}}>May 19,2018</Text>
-                  <Text style={{color:'#00B0F5',marginTop:-20,marginLeft:290}}>Volunteer</Text>
+                  <Image source={require('./img/coin.png')}  style={{width:wp("6%"),marginTop:wp("-12%"),height:wp("6%"),marginLeft:wp("90%"), borderRadius:100}}/>
+                  <Text style={{marginTop:wp("-6%"),fontSize:wp("4%"),marginLeft:wp("92%"),color:'#1B499B',}}>5</Text>
+                  <Text style={{color:'#696969',marginTop:wp("7.7%"),marginLeft:wp("22%"),fontSize:wp("3.4%")}}>May 19,2018</Text>
+                  <Text style={{color:'#00B0F5',marginTop:wp("-6%"),fontSize:wp("4%") ,marginLeft:wp("78%")}}>Volunteer</Text>
                   <View style={styles.person}>
-                  <Image source={require('./img/person.png')} style={{width:20,marginTop:10,height:20,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:19,marginTop:-16,height:13,marginLeft:22}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5.5%"),marginTop:wp("1.2%"),height:wp("5.5%"),marginLeft:wp("1.6%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5%"),marginTop:wp("-4.5%"),height:wp("3.8%"),marginLeft:wp("3.7%")}}/>
                   <Text style={styles.persontxt}>24/50</Text>
                   </View>
                   <View>
-                  <Image source={require('./img/heart.png')} style={{width:20,marginTop:-17,height:20,marginLeft:260}}/>
-                  <Image source={require('./img/eye.png')} style={{width:25,marginTop:-17,height:15,marginLeft:290}}/>
-                  <Image source={require('./img/tree.png')} style={{width:20,marginTop:-19,height:20,marginLeft:325}}/>
+                  <Image source={require('./img/heart.png')} style={{width:wp("8%"),marginTop:wp("-6%"),height:wp("6%"),marginLeft:wp("70%")}}/>
+                  <Image source={require('./img/eye.png')} style={{width:wp("8.3%"),marginTop:wp("-5%"),height:wp("5%"),marginLeft:wp("79.8%")}}/>
+                  <Image source={require('./img/tree.png')} style={{width:wp("6%"),marginTop:wp("-6.8%"),height:wp('6%'),marginLeft:wp("90%")}}/>
                   </View>
-                  <Text style={styles.line3}>────────────────────────────────────</Text>
+                  <Text style={styles.line3}>────────────────────────────────────────────────</Text>
                   </View>
                  </TouchableOpacity>
                   </View> 
                   {/* </Button> */}
                   <View>
                   <TouchableOpacity onPress={() => Actions.mitzvagComponent()}>
-                  <Image source={require('./img/mitzvag.png')}  style={{width:60,marginTop:7,height:60,marginLeft:20,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/mitzvag.png')}  style={{width:wp("17%"),marginTop:wp("5%"),height:wp("17%"),marginLeft:wp("3%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                   <View>
                   <Text style={styles.middletxt}>Mitzvag Food Project</Text>
-                  <Image source={require('./img/coin.png')}  style={{width:25,marginTop:-30,height:25,marginLeft:322, borderRadius:100}}/>
-                  <Text style={{marginTop:-23,marginLeft:331,color:'#1B499B',}}>6</Text>
-                  <Text style={{color:'#696969',marginTop:10,marginLeft:90,fontSize:13}}>Sep 7, 2017 - Sep 2, 2018</Text>
-                  <Text style={{color:'#00B0F5',marginTop:-20,marginLeft:290}}>Donation</Text>
+                  <Image source={require('./img/coin.png')}  style={{width:wp("6%"),marginTop:wp("-8.5%"),height:wp("6%"),marginLeft:wp("90%"), borderRadius:100}}/>
+                  <Text style={{marginTop:wp("-6%"),fontSize:wp("4%"),marginLeft:wp("92%"),color:'#1B499B',}}>6</Text>
+                  <Text style={{color:'#696969',marginTop:wp("5.7%"),marginLeft:wp("22%"),fontSize:wp("3.4%")}}>Sep 7, 2017 - Sep 2, 2018</Text>
+                  <Text style={{color:'#00B0F5',marginTop:wp("-6%"),fontSize:wp("4%") ,marginLeft:wp("80%")}}>Donation</Text>
                   <View style={styles.person}>
-                  <Image source={require('./img/person.png')} style={{width:20,marginTop:28,height:20,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:19,marginTop:-16,height:13,marginLeft:22}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5.5%"),marginTop:wp("1.2%"),height:wp("5.5%"),marginLeft:wp("1.6%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5%"),marginTop:wp("-4.5%"),height:wp("3.8%"),marginLeft:wp("3.7%")}}/>
                   <Text style={styles.persontxt}> 5/30</Text>
                   </View>
                   <View>
-                  <Image source={require('./img/zeroHunger.png')} style={{width:20,marginTop:-17,height:20,marginLeft:300}}/>
-                  <Image source={require('./img/community.png')} style={{width:25,marginTop:-17,height:15,marginLeft:325}}/>
+                  <Image source={require('./img/zeroHunger.png')} style={{width:wp("6.3%"),marginTop:wp("-5%"),height:wp("5%"),marginLeft:wp("80%")}}/>
+                  <Image source={require('./img/community.png')} style={{width:wp("6%"),marginTop:wp("-6.8%"),height:wp('6%'),marginLeft:wp("90%")}}/>
                   </View>
-                  <Text style={styles.line3}>────────────────────────────────────</Text>
+                  <Text style={styles.line3}>────────────────────────────────────────────────</Text>
                   </View>
                   </TouchableOpacity>
                   </View>
                   </View>
                   <View>
-                  <Image source={require('./img/Mohammad.png')}  style={{width:60,marginTop:7,height:60,marginLeft:20,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/Mohammad.png')}  style={{width:wp("17%"),marginTop:wp("5%"),height:wp("17%"),marginLeft:wp("3%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                   <View>
                   <Text style={styles.middletxt}>Virtual Volunteering with{'\n'}MindRight</Text>
-                  <Image source={require('./img/coin.png')}  style={{width:25,marginTop:-30,height:25,marginLeft:322, borderRadius:100}}/>
-                  <Text style={{marginTop:-23,marginLeft:331,color:'#1B499B',}}>4</Text>
-                  <Text style={{color:'#696969',marginTop:10,marginLeft:90,fontSize:13}}>Mar 27, 2017 - Mar 7, 2021</Text>
-                  <Text style={{color:'#00B0F5',marginTop:-20,marginLeft:290}}>Volunteer</Text>
+                  <Image source={require('./img/coin.png')}  style={{width:wp("6%"),marginTop:wp("-12%"),height:wp("6%"),marginLeft:wp("90%"), borderRadius:100}}/>
+                  <Text style={{marginTop:wp("-6%"),fontSize:wp("4%"),marginLeft:wp("92%"),color:'#1B499B',}}>4</Text>
+                  <Text style={{color:'#696969',marginTop:wp("7.7%"),marginLeft:wp("22%"),fontSize:wp("3.4%")}}>Mar 27, 2017 - Mar 7, 2021</Text>
+                  <Text style={{color:'#00B0F5',marginTop:wp("-6%"),fontSize:wp("4%") ,marginLeft:wp("78%")}}>Volunteer</Text>
                   <View style={styles.person}>
-                  <Image source={require('./img/person.png')} style={{width:20,marginTop:10,height:20,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:19,marginTop:-16,height:13,marginLeft:22}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5.5%"),marginTop:wp("1.2%"),height:wp("5.5%"),marginLeft:wp("1.6%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5%"),marginTop:wp("-4.5%"),height:wp("3.8%"),marginLeft:wp("3.7%")}}/>
                   <Text style={styles.persontxt}>38/50</Text>
                   </View>
                   <View>
-                  <Image source={require('./img/industry.png')} style={{width:20,marginTop:-19,height:20,marginLeft:325}}/>
+                  <Image source={require('./img/industry.png')} style={{width:wp("6%"),marginTop:wp("-6.8%"),height:wp('6%'),marginLeft:wp("90%")}}/>
                   </View>
-                  <Text style={styles.line3}>────────────────────────────────────</Text>
+                  <Text style={styles.line3}>────────────────────────────────────────────────</Text>
                   </View>
                   </View>
                   <View>
-                  <Image source={require('./img/anne.png')}  style={{width:60,marginTop:7,height:60,marginLeft:20,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/anne.png')}  style={{width:wp("17%"),marginTop:wp("5%"),height:wp("17%"),marginLeft:wp("3%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                   <View>
                   <Text style={styles.middletxt}>Elementary School Library{'\n'}Team Member</Text>
-                  <Image source={require('./img/coin.png')}  style={{width:25,marginTop:-30,height:25,marginLeft:322, borderRadius:100}}/>
-                  <Text style={{marginTop:-23,marginLeft:331,color:'#1B499B',}}>4</Text>
-                  <Text style={{color:'#696969',marginTop:10,marginLeft:90,fontSize:13}}>Sep 7, 2017 - Sep 2, 2018</Text>
-                  <Text style={{color:'#00B0F5',marginTop:-20,marginLeft:290}}>Volunteer</Text>
+                  <Image source={require('./img/coin.png')}  style={{width:wp("6%"),marginTop:wp("-12%"),height:wp("6%"),marginLeft:wp("90%"), borderRadius:100}}/>
+                  <Text style={{marginTop:wp("-6%"),fontSize:wp("4%"),marginLeft:wp("92%"),color:'#1B499B',}}>4</Text>
+                  <Text style={{color:'#696969',marginTop:wp("7.7%"),marginLeft:wp("22%"),fontSize:wp("3.4%")}}>Sep 7, 2017 - Sep 2, 2018</Text>
+                  <Text style={{color:'#00B0F5',marginTop:wp("-6%"),fontSize:wp("4%") ,marginLeft:wp("78%")}}>Volunteer</Text>
                   <View style={styles.person}>
-                  <Image source={require('./img/person.png')} style={{width:20,marginTop:10,height:20,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:19,marginTop:-16,height:13,marginLeft:22}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5.5%"),marginTop:wp("1.2%"),height:wp("5.5%"),marginLeft:wp("1.6%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5%"),marginTop:wp("-4.5%"),height:wp("3.8%"),marginLeft:wp("3.7%")}}/>
                   <Text style={styles.persontxt}>24/50</Text>
                   </View>
                   <View>
-                  <Image source={require('./img/education.png')} style={{width:20,marginTop:-19,height:20,marginLeft:325}}/>
+                  <Image source={require('./img/education.png')} style={{width:wp("6%"),marginTop:wp("-6.8%"),height:wp('6%'),marginLeft:wp("90%")}}/>
                   </View>
-                  <Text style={styles.line3}>────────────────────────────────────</Text>
+                  <Text style={styles.line3}>────────────────────────────────────────────────</Text>
                   </View>
                   </View>
                   <View>
-                  <Image source={require('./img/mindright.png')}  style={{width:60,marginTop:7,height:60,marginLeft:20,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/mindright.png')}  style={{width:wp("17%"),marginTop:wp("5%"),height:wp("17%"),marginLeft:wp("3%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                   <View>
                   <Text style={styles.middletxt}>Cleaner Parks Volunteering</Text>
-                  <Image source={require('./img/coin.png')}  style={{width:25,marginTop:-30,height:25,marginLeft:322, borderRadius:100}}/>
-                  <Text style={{marginTop:-23,marginLeft:331,color:'#1B499B',}}>6</Text>
-                  <Text style={{color:'#696969',marginTop:10,marginLeft:90,fontSize:13}}>May 19,2018</Text>
-                  <Text style={{color:'#00B0F5',marginTop:-20,marginLeft:290}}>Donation</Text>
+                  <Image source={require('./img/coin.png')}  style={{width:wp("6%"),marginTop:wp("-8.5%"),height:wp("6%"),marginLeft:wp("90%"), borderRadius:100}}/>
+                  <Text style={{marginTop:wp("-6%"),fontSize:wp("4%"),marginLeft:wp("92%"),color:'#1B499B',}}>6</Text>
+                  <Text style={{color:'#696969',marginTop:wp("5.7%"),marginLeft:wp("22%"),fontSize:wp("3.4%")}}>May 19,2018</Text>
+                  <Text style={{color:'#00B0F5',marginTop:wp("-6%"),fontSize:wp("4%") ,marginLeft:wp("80%")}}>Donation</Text>
                   <View style={styles.person}>
-                  <Image source={require('./img/person.png')} style={{width:20,marginTop:28,height:20,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:19,marginTop:-16,height:13,marginLeft:22}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5.5%"),marginTop:wp("1.2%"),height:wp("5.5%"),marginLeft:wp("1.6%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("5%"),marginTop:wp("-4.5%"),height:wp("3.8%"),marginLeft:wp("3.7%")}}/>
                   <Text style={styles.persontxt}> 5/30</Text>
                   </View>
                   <View>
-                  <Image source={require('./img/zeroHunger.png')} style={{width:20,marginTop:-17,height:20,marginLeft:300}}/>
-                  <Image source={require('./img/community.png')} style={{width:25,marginTop:-17,height:15,marginLeft:325}}/>
+                  <Image source={require('./img/zeroHunger.png')} style={{width:wp("6.3%"),marginTop:wp("-5%"),height:wp("5%"),marginLeft:wp("80%")}}/>
+                  <Image source={require('./img/community.png')} style={{width:wp("6%"),marginTop:wp("-6.8%"),height:wp('6%'),marginLeft:wp("90%")}}/>
                   </View>
-                  <Text style={styles.line3}>────────────────────────────────────</Text>
+                  <Text style={styles.line3}>────────────────────────────────────────────────</Text>
                   </View>
                   </View>
-            </View>
-            // </ScrollView>
+            {/* </View> */}
+             </ScrollView>
         )
     }
 }
