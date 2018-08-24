@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
       groups:{
         fontSize:18,
         color:'#1B499B',
+      },
+      groupsBtn:{
         marginTop:-24,
         marginLeft:260
       },
@@ -299,7 +301,11 @@ class ShiftComponent extends Component{
                      <Text style={styles.actions}>Actions</Text>
                      <Text style={styles.line}>──</Text>
                      <Text style={styles.challenges}>Challenges</Text>
-                     <Text style={styles.groups}>Groups</Text>                  
+                     <View style={styles.groupsBtn} >
+                         <Button onPress={() => Actions.groupslist()}>
+                            <Text style={styles.groups}>Groups</Text>
+                         </Button>
+                     </View>                  
                   </View>
                   <View>
                   <Image source={require('./img/map.png')} style={styles.backgroundImage} />
