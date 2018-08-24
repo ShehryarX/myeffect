@@ -15,6 +15,9 @@ import MitzvagComponent from './Apps/Component/MitzvagFood/MitzvagFood'
 import ThankyouComponent from './Apps/Component/ThankyouComponent/ThankyouComponent'
 import ActionsList from './Apps/Component/ActionsList/ActionList'
 import GroupComponent from './Apps/Component/GroupComponent/GroupComponent'
+import GroupsList from './Apps/Component/GroupsList/GroupsList'
+import JoinHappyHippieGroup from './Apps/Component/JoinHappyHippieGroup/JoinHappyHippieGroup';
+import HappyHippieFoundation from './Apps/Component/HappyHippieFoundation/HappyHippieFoundation';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class App extends Component {
@@ -102,7 +105,22 @@ export default class App extends Component {
           component={ThankyouComponent}
           hideNavBar={true}
         />
-      </Scene> 
+          <Scene
+          key="groupslist"
+          component={GroupsList}
+          hideNavBar={true}
+        />
+          <Scene
+          key="JoinHappyHippieGroup"
+          component={JoinHappyHippieGroup}
+          hideNavBar={true}
+        />
+          <Scene
+          key="HappyHippieFoundation"
+          component={HappyHippieFoundation}
+          hideNavBar={true}
+        />
+      </Scene>
     </Router>
       </View>
     );
