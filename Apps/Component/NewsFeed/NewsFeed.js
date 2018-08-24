@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         position:'relative',
         width: wp('100%'),
         height: hp('100%'),
-        backgroundColor:'#EDF1F5'
+        // backgroundColor:'#EDF1F5'
        },
        arrowbtnContainer:{
         position:'relative',
