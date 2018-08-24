@@ -183,7 +183,7 @@ class ParkdayComponent extends Component{
                      <Text style={styles.actions}>Actions</Text>
                      <Text style={styles.line}>──</Text>
                      <Text style={styles.challenges}>Challenges</Text>
-                     <Text style={styles.groups}>Groups</Text>                  
+                     <Text style={styles.groups}>Groups</Text>
                   </View>
                   <View>
                   <Image source={require('./img/map.png')} style={styles.backgroundImage} />
