@@ -3,62 +3,64 @@ import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView, Modal, Dimen
 import Button from 'react-native-button';
 import Row from 'react-native-row'; 
 import { Actions } from 'react-native-router-flux'; // New code
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width:wp("100%"),
+        height:wp("100%",)
        },
        arrowbtnContainer:{
         position:'relative',
-        paddingLeft:10,
+        paddingLeft:wp("2.5%"),
         flexDirection: 'row',
         
       },
       actions:{
-          fontSize:18,
-          color:'#00B0F5',
-          marginTop:-15,
-          marginLeft:45,
+        fontSize:wp("5%"),
+        color:'#00B0F5',
+        marginTop:wp("-4%"),
+        marginLeft:wp("13%"),
       },
       challenges:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-59,
-        marginLeft:140
+        marginTop:wp("-16%"),
+        marginLeft:wp("39%")
       },
       groups:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-24,
-        marginLeft:260
+      },
+      groupsBtn:{
+        marginTop:wp("-7.1%"),
+        marginLeft:wp("73%")
       },
       line:{
         color:'#00B0F5',
-        fontSize:45,
-        marginTop:-24,
-        marginLeft:45
+        fontSize:wp("12.3%"),
+        marginTop:wp("-6.5%"),
+        marginLeft:wp("13%")
       },
       backgroundImage: {
-          marginTop:18,
+        marginTop:wp("6%"),
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
-        height:750,
+        height:wp("140%"),
         // justifyContent: 'flex-end',
-        width:370,
+        width:wp("100%"),
       },
       Conatiner2:{
         backgroundColor:'#FFFFFF',
-        position: 'absolute',
-        marginTop: 105,
-        marginLeft:10,
-        width:339,
-        height:380,
+        position: 'relative',
+        marginTop: wp("5%"),
+        marginLeft:wp("3%"),
+        width:wp("95.4%"),
+        height:wp("105%"),
         borderRadius:10,
         shadowOffset: {width: 0, height: 13}, 
         shadowOpacity: 0.5,
@@ -68,33 +70,32 @@ const styles = StyleSheet.create({
     },
     persontxt:{
         color:'#00B0F5',
-        marginLeft:18,
-        fontSize:12,
-        marginTop:-5
+        marginLeft:wp("5%"),
+        fontSize:wp('3%'),
+        marginTop:wp("-1%")
     },
     cointtxt:{
         color:'#1B499B',
-        marginLeft:302,
-        fontSize:22,
-        marginTop:-35
+        marginLeft:wp("85.5%"),
+        fontSize:wp("5.5%"),
+        marginTop:wp("-9%")
     },
     volunteer:{
         color:'#00B0F5',
-        fontSize:17,
-        marginLeft:130,
-        marginTop:-25
-
+        fontSize:wp("5%"),
+        marginLeft:wp("36.5%"),
+        marginTop:wp("-7%")
         },
         middletxt:{
             color:'#1B499B',
-            marginTop:20,
-            fontSize:17,
-            marginLeft:91
+            marginTop:wp('3%'),
+            fontSize:wp("5%"),
+            marginLeft:wp("24%")
         },
         ptext:{
             color:'#424242',
-            marginLeft:38,
-            fontSize:13
+            marginLeft:wp("7%"),
+            fontSize:wp("4%")
         },
         sttxt:{
             color:'#696969',
@@ -103,15 +104,15 @@ const styles = StyleSheet.create({
             marginLeft:47
         },
         insideContainer:{
-        backgroundColor:'#EDF1F5',
-        marginTop:4,
-        marginLeft:0,
-        height:130,
+            backgroundColor:'#EDF1F5',
+            marginTop:wp("1%"),
+            height:wp("34%"),
         },
         insideContainertxt:{
             color:'#1B499B',
-            marginTop:3,
-            marginLeft:103
+            fontSize:wp("3.5%"),
+            marginTop:wp("1.5%"),
+            marginLeft:wp("33%")
         },
         insidedate:{
             marginTop:5,
@@ -156,26 +157,16 @@ const styles = StyleSheet.create({
         },
         takeaction:{
             color:'#1B499B',
-            fontSize:12
+            fontSize:wp("3.5%")
         },
         SectionStyle: {
             flexDirection: 'row',
-            // justifyContent: 'center',
-            // alignItems: 'center',
             backgroundColor: '#FFFFFF',
             borderColor: '#000',
-            // height: 40,
             borderRadius: 20 ,
-            marginTop:20,
-            width:185,
-            marginLeft:80,
-        // borderRadius:100,
-        // shadowOffset: {width: 0, height: 5}, 
-        // shadowOpacity: 0.5,
-        // shadowRadius: 4,
-        // // android (Android +5.0)
-        // elevation: 5,
-            // margin: 10
+            marginTop:wp("5%"),
+            width:wp("53%"),
+            marginLeft:wp("22%"),
         },
         ImageStyle: {
             marginLeft: 7,
@@ -198,9 +189,9 @@ const styles = StyleSheet.create({
           $5:{
             backgroundColor:'#FFFFFF',
             position: 'absolute',
-            marginTop: 85,
-            marginLeft:80,
-            width:60,
+            marginTop: wp("1.5%"),
+            marginLeft:wp("24%"),
+            width:wp("12%"),
             height:25,
             borderRadius:50,
             shadowOffset: {width: 0, height: 13}, 
@@ -212,9 +203,9 @@ const styles = StyleSheet.create({
           $25:{
             backgroundColor:'#FFFFFF',
             position: 'absolute',
-            marginTop: 85,
-            marginLeft:145,
-            width:60,
+            marginTop: wp("1.5%"),
+            marginLeft:wp("38.5%"),
+            width:wp("14%"),
             height:25,
             borderRadius:50,
             shadowOffset: {width: 0, height: 13}, 
@@ -226,9 +217,9 @@ const styles = StyleSheet.create({
           $50:{
             backgroundColor:'#FFFFFF',
             position: 'absolute',
-            marginTop: 85,
-            marginLeft:210,
-            width:60,
+            marginTop: wp("1.5%"),
+            marginLeft:wp("55%"),
+            width:wp("14%"),
             height:25,
             borderRadius:50,
             shadowOffset: {width: 0, height: 13}, 
@@ -240,17 +231,12 @@ const styles = StyleSheet.create({
           modalContainer:{
             backgroundColor:'#EDF1F5',
             position: 'absolute',
-            marginTop: 470,
-            marginLeft:10,
-            width:339,
+            marginTop: wp("132%"),
+            marginLeft:wp("3%"),
+            width:wp("95.4%"),
             // opacity:0.7,
-            height:92,
+            height:wp("30%"),
             borderRadius:10,
-            // shadowOffset: {width: 0, height: 13}, 
-            // shadowOpacity: 0.5,
-            // shadowRadius: 6,
-            // // android (Android +5.0)
-            // elevation: 5,
         }
           
     })
@@ -282,35 +268,41 @@ $50func = ()=>{
     render(){
         return(
             <View style={styles.container}>
-                   <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-5, paddingTop:30, width:80, marginTop:5, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => Actions.actionlist()}
+                  <View style={styles.arrowbtnContainer}>
+                  <Button containerStyle={{marginLeft:wp("-1%"), paddingTop:wp("8.5%"), width:wp("22%"), position:'relative', borderRadius:4, backgroundColor: 'transparent'}}  onPress={() => Actions.parkday()}
                     style={{color:'#FCDC28'}}>
-                  <Image source={require('./img/arrow.png')} style={{width:20,height:26,marginLeft:15}}/>
+                  <Image source={require('./img/arrow.png')} style={{width:wp("6%"),height:wp("6%"),marginLeft:wp("4%")}}/>
                   </Button>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:60,marginTop:15}} />
-                  <Image source={require('./img/bell.png')} style={{width:30,height:30,marginLeft:90,marginTop:33}} />
+                  <Image source={require('./img/logo.png')} style={{width:wp("17%"),height:wp('17%'),marginLeft:wp("17%"),marginTop:wp("5%")}} />
+                  <Image source={require('./img/bell.png')} style={{width:wp("8%"),height:wp('8%'),marginLeft:wp("30%"),marginTop:wp("8%")}} />
                   </View>
                   <View>
                      <Text style={styles.actions}>Actions</Text>
                      <Text style={styles.line}>──</Text>
                      <Text style={styles.challenges}>Challenges</Text>
-                     <Text style={styles.groups}>Groups</Text>                  
+                     <View style={styles.groupsBtn} >
+                         <Button onPress={() => Actions.groupslist()}>
+                            <Text style={styles.groups}>Groups</Text>
+                         </Button>
+                     </View>                  
                   </View>
                   <View>
                   <Image source={require('./img/map.png')} style={styles.backgroundImage} />
                   <View>
-                  <Image source={require('./img/mitzvag.png')} style={{width:75,marginTop:23,height:75,marginLeft:135,borderColor:'#00B0F5',borderWidth:3, borderRadius:100}}/>
+                  <Image source={require('./img/mitzvag.png')} style={{width:wp("21%"),marginTop:wp("7%"),height:wp("21%"),marginLeft:wp("40%"),borderColor:'#00B0F5',borderWidth:3, borderRadius:100}}/>
                   <View style={styles.Conatiner2}>
                   <View>
-                  <Image source={require('./img/person.png')} style={{width:28,marginTop:10,height:28,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:25,marginTop:-25,height:23,marginLeft:26}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("8%"),marginTop:wp("4%"),height:wp("8%"),marginLeft:wp("4%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("6.7%"),marginTop:wp("-6.8%"),height:wp("6.7%"),marginLeft:wp("7%")}}/>
                   <Text style={styles.persontxt}>24/50</Text>
-                  <Image source={require('./img/coin.png')} style={{width:35,marginTop:-35,height:35,marginLeft:290}}/>
+                  <Image source={require('./img/coin.png')} style={{width:wp("10%"),marginTop:wp("-12%"),height:wp("10%"),marginLeft:wp("82%")}}/>
                   <Text style={styles.cointtxt}>5</Text>
                   <Text style={styles.volunteer}>Donation</Text>
                   <Text style={styles.middletxt}>Mitzvag Food Project</Text>
-                  <Image source={require('./img/cup.png')} style={{width:20,marginTop:-0,height:20,marginLeft:145}}/>
-                  <Image source={require('./img/building.png')} style={{width:20,marginTop:-20,height:20,marginLeft:175}}/>
+                  <View style={{flexDirection:'row'}}>
+                  <Image source={require('./img/cup.png')} style={{width:wp("7%"),marginTop:wp("-0.1%"),height:wp("6%"),marginLeft:wp("37.5%")}}/>
+                  <Image source={require('./img/building.png')} style={{width:wp("8%"),marginTop:wp("-0.1%"),height:wp("7%"),marginLeft:wp("0.5%")}}/>
+                  </View>
                   <Text style={styles.ptext}>Join us at Lardner's Point Park  for a riverside{'\n'}    park and trail cleanup. We'll be doing trail{'\n'}  maintenance, trash collection, planting and{'\n'}                                     more! </Text>
                   <View style={styles.insideContainer}>
                    <Text style={styles.insideContainertxt}>I would like to donate</Text>
@@ -318,6 +310,7 @@ $50func = ()=>{
                        <Image source={require('./img/dollar.png')} style={styles.ImageStyle} />
                        <TextInput  style={styles.input}  underlineColorAndroid = "transparent" placeholderTextColor = "#CDCDCD"  onChangeText={(donationValue) => this.setState({donationValue})}  value={this.state.donationValue} />
                     </View>
+                    <View style={{flexDirection:'row'}}>
                     <View style={styles.$5}>
                     <Button onPress={this.$5func}>
                         $5
@@ -334,7 +327,8 @@ $50func = ()=>{
                     </Button>
                     </View>
                   </View>
-                  <Image source={require('./img/bookmark.png')} style={{width:35,marginTop:20,height:35,marginLeft:10}}/>
+                  </View>
+                  <Image source={require('./img/bookmark.png')} style={{width:wp("10%"),marginTop:wp("5%"),height:wp("10%"),marginLeft:wp("2%")}}/>
                   <Modal
           animationType="slide"
           transparent={true}
@@ -342,11 +336,11 @@ $50func = ()=>{
           visible={this.state.modalVisible}
          >
           <View style={styles.modalContainer}>
-          <Image source={require('./img/facebook.png')} style={{width:45,marginTop:30,height:45,marginLeft:110}}/>
-          <Image source={require('./img/twitter.png')} style={{width:40,marginTop:-43,height:40,marginLeft:160}}/>
-          <Image source={require('./img/linkedin.png')} style={{width:48,marginTop:-44,height:48,marginLeft:203}}/>
-          <Image source={require('./img/mail.png')} style={{width:40,marginTop:-44,height:40,marginLeft:253}}/>
-          <View style={{marginLeft:300,marginTop:-34}}> 
+          <Image source={require('./img/facebook.png')} style={{width:wp("12%"),marginTop:wp("10%"),height:wp("12%"),marginLeft:wp("30%")}}/>
+          <Image source={require('./img/twitter.png')} style={{width:wp("12%"),marginTop:wp("-12%"),height:wp("12%"),marginLeft:wp("43.4%")}}/>
+          <Image source={require('./img/linkedin.png')} style={{width:wp("13%"),marginTop:wp("-12%"),height:wp("13%"),marginLeft:wp("57%")}}/>
+          <Image source={require('./img/mail.png')} style={{width:wp("12%"),marginTop:wp("-12%"),height:wp("12%"),marginLeft:wp("70%")}}/>
+          <View style={{marginLeft:wp("85%"),marginTop:wp("-11%")}}> 
           <Button style={{width:25,height:25,marginTop:-34}} onPress={this.setModalHide}>
               <Image source={require('./img/share.png')}/>   
             </Button>
@@ -355,11 +349,11 @@ $50func = ()=>{
           </Modal>
           <View style={{marginTop:-27}}>
               <Button onPress={this.setModalVisible}>
-                  <Image source={require('./img/share.png')} style={{width:25,marginTop:0,height:25,marginLeft:300}}/> 
+                  <Image source={require('./img/share.png')} style={{width:wp("7%"),height:wp("6.8%"),marginLeft:wp("85%")}}/> 
                 </Button>
                     </View>
                   {/* <Image source={require('./img/share.png')} style={{width:25,marginTop:-32,height:25,marginLeft:300}}/> */}
-                  <Button containerStyle={{padding:10, width:125, marginTop:330, marginLeft:110, position:'absolute', overflow:'hidden', borderRadius:100, backgroundColor: '#FEE000'}} style={styles.takeaction} onPress={() => Actions.thankyou()}>
+                  <Button containerStyle={{padding:wp("2%"), width:wp("35%"), marginTop:wp("93%"), marginLeft:wp("33%"), position:'absolute', overflow:'hidden', borderRadius:100, backgroundColor: '#FEE000'}} style={styles.takeaction} onPress={() => Actions.thankyou()}>
                     Take Action
                   </Button>
                   </View>
