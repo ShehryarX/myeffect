@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         position:'relative',
         paddingLeft:wp("2%"),
         flexDirection: 'row',
-        
       },
       profiletxt:{
         fontSize:wp("3%"),
