@@ -1,22 +1,20 @@
 import React,{Component} from 'react';
 import { StyleSheet, Text, View, Alert, Animated, Image,ScrollView,  Dimensions, KeyboardAvoidingView,TextInput} from 'react-native';
 import Button from 'react-native-button';
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width:wp("100%"),
+        height:wp("100%",)
        },
        arrowbtnContainer:{
         position:'relative',
-        paddingLeft:10,
+        paddingLeft:wp("2%"),
         flexDirection: 'row',
-        
       },
       profiletxt:{
         fontSize:12,
@@ -25,45 +23,47 @@ const styles = StyleSheet.create({
         marginLeft:50,
     },
     actions:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#00B0F5',
-        marginTop:-15,
-        marginLeft:45,
+        marginTop:wp("-4%"),
+        marginLeft:wp("13%"),
     },
     line:{
         color:'#00B0F5',
-        fontSize:45,
-        marginTop:-24,
-        marginLeft:45
+        fontSize:wp("12.3%"),
+        marginTop:wp("-6.5%"),
+        marginLeft:wp("13%")
       },
       challenges:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-59,
-        marginLeft:140
+        marginTop:wp("-16%"),
+        marginLeft:wp("39%")
       },
       groups:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-24,
-        marginLeft:260
+      },
+      groupsBtn:{
+        marginTop:wp("-7.1%"),
+        marginLeft:wp("73%")
       },
       backgroundImage: {
-        marginTop:18,
-      flex: 1,
-      resizeMode: 'cover', // or 'stretch'
-      position:'absolute',
-      height:750,
-      // justifyContent: 'flex-end',
-      width:370,
+        marginTop:wp("6%"),
+        flex: 1,
+        resizeMode: 'cover', // or 'stretch'
+        position:'absolute',
+        height:wp("140%"),
+        // justifyContent: 'flex-end',
+        width:wp("100%"),
     },
     Conatiner2:{
         backgroundColor:'#FFFFFF',
         position: 'absolute',
-        marginTop: 105,
-        marginLeft:27,
-        width:300,
-        height:270,
+        marginTop: wp("30%"),
+        marginLeft:wp("8%"),
+        width:wp("85%"),
+        height:wp("75%"),
         borderRadius:10,
         shadowOffset: {width: 0, height: 13}, 
         shadowOpacity: 0.5,
@@ -73,19 +73,18 @@ const styles = StyleSheet.create({
     },
     insideContainertxt:{
         color:'#1B499B',
-        marginTop:20,
-        fontSize:25,
-        marginLeft:85
+        marginTop:wp("4%"),
+        fontSize:wp("7%"),
+        marginLeft:wp("25%")
     },
     insideContainertxt2:{
         color:'#1B499B',
-        marginTop:0,
-        fontSize:15,
-        marginLeft:73
+        fontSize:wp("5%"),
+        marginLeft:wp("18%")
     },
     takeaction:{
-        color:'#FFFFFF',
-        fontSize:14
+        color:'white',
+        fontSize:wp("4.1%")
     },
     })
 
@@ -97,23 +96,27 @@ class ThankyouComponent extends Component{
     render(){
         return(
             <View style={styles.container}>
-                   <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-10, paddingTop:30, width:80, position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
+                  <View style={styles.arrowbtnContainer}>
+                  <Button containerStyle={{marginLeft:wp("-1%"), paddingTop:wp("8%"), width:wp("22%"), position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
                     style={{color:'#FCDC28'}}>
                     <View>
-                  <Image source={require('./img/profileimg.png')} style={{width:30,marginTop:4,height:30,marginLeft:15,borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/profileimg.png')} style={{width:wp("8%"),marginTop:wp("1%"),height:wp("8%"),marginLeft:wp("4%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                       <Text style={styles.profiletxt}>2400</Text>
                   </View>
                   </Button>
-                  <Image source={require('./img/coin.png')} style={{width:13,height:13,marginTop:42}}/>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:60,marginTop:15}} />
-                  <Image source={require('./img/bell.png')} style={{width:30,height:30,marginLeft:90,marginTop:33}} />
+                  <Image source={require('./img/coin.png')} style={{width:wp("4%"),height:wp("4%"),marginTop:wp("11%")}}/>
+                  <Image source={require('./img/logo.png')} style={{width:wp("18.5%"),height:wp("18.5%"),marginLeft:wp("18%"),marginTop:wp("5%")}} />
+                  <Image source={require('./img/bell.png')} style={{width:wp("9%"),height:wp("9%"),marginLeft:wp("25%"),marginTop:wp("8%")}} />
                   </View>
                   <View>
                      <Text style={styles.actions}>Actions</Text>
                      <Text style={styles.line}>──</Text>
                      <Text style={styles.challenges}>Challenges</Text>
-                     <Text style={styles.groups}>Groups</Text>                  
+                     <View style={styles.groupsBtn} >
+                         <Button onPress={() => Actions.groupslist()}>
+                            <Text style={styles.groups}>Groups</Text>
+                         </Button>
+                     </View>                  
                   </View>
                   <View>
                   <Image source={require('./img/map.png')} style={styles.backgroundImage} />
@@ -121,11 +124,11 @@ class ThankyouComponent extends Component{
                   <View>
                      <Text style={styles.insideContainertxt}>Thank you!</Text>
                      <Text style={styles.insideContainertxt2}>Your action is added to{'\n'}        your calendar</Text>
-                     <Image source={require('./img/calendar.png')} style={{width:45,height:45,marginLeft:129,marginTop:20}} />
-                     <Button containerStyle={{padding:10, width:130, marginTop:10, marginLeft:87, overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.takeaction}>
+                     <Image source={require('./img/calendar.png')} style={{width:wp("12%"),height:wp("12%"),marginLeft:wp("36%"),marginTop:20}} />
+                     <Button containerStyle={{padding:wp("2%"), width:wp("35%"), marginTop:wp("5%"), marginLeft:wp("25%"), overflow:'hidden', borderRadius:100, backgroundColor: '#1B499B'}} style={styles.takeaction}>
                     Check Calendar
                   </Button>
-                  <Button containerStyle={{padding:10, width:130, marginTop:20, marginLeft:90, overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.takeaction}>
+                  <Button containerStyle={{padding:wp("2%"), width:wp("35%"), marginTop:wp("4%"), marginLeft:wp("25%%"), overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.takeaction}>
                     Back
                   </Button>
                    </View>
