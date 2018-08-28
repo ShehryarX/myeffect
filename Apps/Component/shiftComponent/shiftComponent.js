@@ -3,64 +3,64 @@ import { StyleSheet,Modal, Text, View, Alert, Animated, Image,ScrollView,  Touch
 import Button from 'react-native-button';
 import Row from 'react-native-row'; 
 import { Actions } from 'react-native-router-flux'; // New code
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {moderateScale} from '../scaling'
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
         position:'relative',
-        // backgroundColor:'#EDF1F5',
-        // marginTop:-250,
-        // width:360,
-        // justifyContent:'center',
+        width:wp("100%"),
+        height:wp("100%"),
        },
        arrowbtnContainer:{
         position:'relative',
-        paddingLeft:10,
+        paddingLeft:wp("2.5%"),
         flexDirection: 'row',
         
       },
       actions:{
-          fontSize:18,
-          color:'#00B0F5',
-          marginTop:-15,
-          marginLeft:45,
+        fontSize:wp("5%"),
+        color:'#00B0F5',
+        marginTop:wp("-4%"),
+        marginLeft:wp("13%"),
       },
       challenges:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
-        marginTop:-59,
-        marginLeft:140
+        marginTop:wp("-16%"),
+        marginLeft:wp("39%")
       },
       groups:{
-        fontSize:18,
+        fontSize:wp("5%"),
         color:'#1B499B',
       },
       groupsBtn:{
-        marginTop:-24,
-        marginLeft:260
+        marginTop:wp("-7.1%"),
+        marginLeft:wp("73%")
       },
       line:{
         color:'#00B0F5',
-        fontSize:45,
-        marginTop:-24,
-        marginLeft:45
+        fontSize:wp("12.3%"),
+        marginTop:wp("-6.5%"),
+        marginLeft:wp("13%")
       },
       backgroundImage: {
-          marginTop:18,
+        marginTop:wp("6%"),
         flex: 1,
         resizeMode: 'cover', // or 'stretch'
         position:'absolute',
-        height:750,
+        height:wp("140%"),
         // justifyContent: 'flex-end',
-        width:370,
+        width:wp("100%"),
       },
       Conatiner2:{
         backgroundColor:'#FFFFFF',
-        position: 'absolute',
-        marginTop: 105,
-        marginLeft:10,
-        width:339,
-        height:380,
+        position: 'relative',
+        marginTop: wp("5%"),
+        marginLeft:wp("3%"),
+        width:wp("95.4%"),
+        height:wp("105%"),
         borderRadius:10,
         shadowOffset: {width: 0, height: 13}, 
         shadowOpacity: 0.5,
@@ -70,56 +70,62 @@ const styles = StyleSheet.create({
     },
     persontxt:{
         color:'#00B0F5',
-        marginLeft:18,
-        fontSize:12,
-        marginTop:-5
+        marginLeft:wp("5%"),
+        fontSize:wp('3%'),
+        marginTop:wp("-1%")
     },
     cointtxt:{
         color:'#1B499B',
-        marginLeft:302,
-        fontSize:22,
-        marginTop:-35
+        marginLeft:wp("85.5%"),
+        fontSize:wp("5.5%"),
+        marginTop:wp("-9%")
     },
     volunteer:{
         color:'#00B0F5',
-        fontSize:17,
-        marginLeft:130,
-        marginTop:-25
+        fontSize:wp("5%"),
+        marginLeft:wp("36.5%"),
+        marginTop:wp("-7%")
 
         },
         middletxt:{
             color:'#1B499B',
-            marginTop:20,
-            fontSize:16,
-            marginLeft:60
+            marginTop:wp('3%'),
+            fontSize:wp("5%"),
+            marginLeft:wp("17%")
+        },
+        middletxtPointPark:{
+            color:'#1B499B',
+            marginTop:wp('-1%'),
+            fontSize:wp("5%"),
+            marginLeft:wp("27%")
         },
         ptext:{
             color:'#424242',
-            marginLeft:38,
-            fontSize:13
+            marginLeft:wp("7%"),
+            fontSize:wp("4%")
         },
         sttxt:{
             color:'#696969',
-            fontSize:13,
-            marginTop:5,
-            marginLeft:47
+            fontSize:wp("3.5%"),
+            marginTop:wp("2%"),
+            marginLeft:wp("15%")
         },
         insideContainer:{
-        backgroundColor:'#EDF1F5',
-        marginTop:4,
-        marginLeft:0,
-        height:80,
+            backgroundColor:'#EDF1F5',
+            marginTop:wp("1%"),
+            height:wp("20%"),
         },
         insideContainertxt:{
             color:'#1B499B',
-            marginTop:3,
-            marginLeft:125
+            fontSize:wp("3.5%"),
+            marginTop:wp("1.5%"),
+            marginLeft:wp("37%")
         },
         insideContainer2:{
             backgroundColor:'#EDF1F5',
-            marginTop:4,
+            marginTop:wp("1%"),
             marginLeft:0,
-            height:205,
+            height:wp("57%"),
             },
             insideContainertxt2:{
                 color:'#1B499B',
@@ -127,11 +133,11 @@ const styles = StyleSheet.create({
                 marginLeft:125
             },
         insidedate:{
-            marginTop:5,
-            marginLeft:20,
-            width:140,
-            height:25,
-            marginBottom:15,
+            marginTop:wp("1%"),
+            marginLeft:wp("5%"),
+            width:wp("38%"),
+            height:wp("7%"),
+            marginBottom:wp("5%"),
             backgroundColor:'#FFFFFF',
             borderRadius:20
         },
@@ -142,11 +148,11 @@ const styles = StyleSheet.create({
             marginTop:3
         },
         insidedate2:{
-            marginTop:-40,
-            marginLeft:180,
-            width:140,
-            height:25,
-            marginBottom:15,
+            marginTop:wp("-11.7%"),
+            marginLeft:wp("50%"),
+            width:wp("38%"),
+            height:wp("7%"),
+            marginBottom:wp("5%"),
             backgroundColor:'#FFFFFF',
             borderRadius:20
         },
@@ -172,73 +178,73 @@ const styles = StyleSheet.create({
         },
         takeaction:{
             color:'#1B499B',
-            fontSize:12
+            fontSize:wp("3.5%")
         },
         multipleshifttxt:{
             color:'#696969',
-            fontSize:12,
-            marginLeft:105
+            fontSize:wp("3.5%"),
+            marginTop:wp("1.5%"),
+            marginLeft:wp("31%")
         },
         insideContainerShift:{
             backgroundColor:'#EDF1F5',
-            marginTop:4,
-            marginLeft:0,
-            height:200,
+            marginTop:wp("1%"),
+            height:wp("58%"),
         },
         insideContainertxt2:{
             color:'#1B499B',
-            marginTop:3,
-            marginLeft:125
+            marginTop:wp("1%"),
+            fontSize:wp("4%"),
+            textAlign:'center'
         },
         shifttxt:{
-            fontSize:12,
+            fontSize:wp("3.5%"),
+            textAlign:'center',
             color:'#959595',
-            marginLeft:130,
-            marginTop:10
+            marginTop:wp("1%")
         },
         datetxt3:{
-            fontSize:12,
+            fontSize:wp("3.5%"),
             color:'#959595',
-            marginLeft:15,
-            marginTop:3
+            textAlign:'center',
+            marginTop:wp("1%")
         },
         datetxt4:{
-            fontSize:12,
+            fontSize:wp("3.5%"),
             color:'#1B499B',
-            marginLeft:20,
-            marginTop:3
+            marginTop:wp("1%"),
+            textAlign:'center'
         },
         selectShifttxtbtn:{
-            fontSize:13,
+            fontSize:wp("3.5%"),
             color:'#1B499B',
-            marginLeft:35,
-            marginTop:2,
-            height:30
+            marginLeft:wp("5%"),
+            marginTop:wp("-0.1%"),
+            height:wp("6%")
         },
         selectTimebtn:{
-            fontSize:13,
+            fontSize:wp("3.3%"),
             color:'#1B499B',
-            marginLeft:20,
-            marginTop:2,
-            height:30
+            marginLeft:wp("3%"),
+            marginTop:wp("0.1"),
         },
         insidedatashift:{
             marginTop:0,
-            marginLeft:100,
-            width:140,
-            height:25,
-            marginBottom:15,
+            marginLeft:wp("33%"),
+            width:wp("33%"),
+            height:wp("5%"),
+            marginBottom:wp("3%"),
             backgroundColor:'#FFFFFF',
             borderRadius:20
         },
         modalContainer:{
             backgroundColor:'#EDF1F5',
             position: 'absolute',
-            marginTop: 470,
-            marginLeft:10,
-            width:339,
+            marginTop: wp("132%"),
+            marginLeft:wp("3%"),
+            width:wp("95.4%"),
             // opacity:0.7,
-            height:110,
+            height:wp("30%"),
             borderRadius:10,
             // shadowOffset: {width: 0, height: 13}, 
             // shadowOpacity: 0.5,
@@ -290,12 +296,12 @@ class ShiftComponent extends Component{
         return(
             <View style={styles.container}>
                    <View style={styles.arrowbtnContainer}>
-                  <Button containerStyle={{marginLeft:-5, paddingTop:30, width:80, marginTop:5, position:'relative', borderRadius:4, backgroundColor: 'transparent'}}  onPress={() => Actions.actionlist()}
+                  <Button containerStyle={{marginLeft:wp("-1%"), paddingTop:wp("8.5%"), width:wp("22%"), position:'relative', borderRadius:4, backgroundColor: 'transparent'}}  onPress={() => Actions.parkday()}
                     style={{color:'#FCDC28'}}>
-                  <Image source={require('./img/arrow.png')} style={{width:20,height:26,marginLeft:15}}/>
+                  <Image source={require('./img/arrow.png')} style={{width:wp("6%"),height:wp("6%"),marginLeft:wp("4%")}}/>
                   </Button>
-                  <Image source={require('./img/logo.png')} style={{width:75,height:75,marginLeft:60,marginTop:15}} />
-                  <Image source={require('./img/bell.png')} style={{width:30,height:30,marginLeft:90,marginTop:33}} />
+                  <Image source={require('./img/logo.png')} style={{width:wp("17%"),height:wp('17%'),marginLeft:wp("17%"),marginTop:wp("5%")}} />
+                  <Image source={require('./img/bell.png')} style={{width:wp("8%"),height:wp('8%'),marginLeft:wp("30%"),marginTop:wp("8%")}} />
                   </View>
                   <View>
                      <Text style={styles.actions}>Actions</Text>
@@ -310,27 +316,28 @@ class ShiftComponent extends Component{
                   <View>
                   <Image source={require('./img/map.png')} style={styles.backgroundImage} />
                   <View>
-                  <Image source={require('./img/parkday.png')} style={{width:75,marginTop:23,height:75,marginLeft:135,borderColor:'#00B0F5',borderWidth:3, borderRadius:100}}/>
+                  <Image source={require('./img/parkday.png')} style={{width:wp("21%"),marginTop:wp("7%"),height:wp("21%"),marginLeft:wp("40%"),borderColor:'#00B0F5',borderWidth:3, borderRadius:100}}/>
                   <View style={styles.Conatiner2}>
                   <View>
                   <Button onPress={this.signupedListShow}>
                   <View>
-                  <Image source={require('./img/person.png')} style={{width:28,marginTop:10,height:28,marginLeft:15}}/>
-                  <Image source={require('./img/person.png')} style={{width:25,marginTop:-25,height:23,marginLeft:26}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("8%"),marginTop:wp("4%"),height:wp("8%"),marginLeft:wp("4%")}}/>
+                  <Image source={require('./img/person.png')} style={{width:wp("6.7%"),marginTop:wp("-6.8%"),height:wp("6.7%"),marginLeft:wp("7%")}}/>
                   <Text style={styles.persontxt}>24/50</Text>
                   </View>
                   </Button>
-                  <Image source={require('./img/coin.png')} style={{width:35,marginTop:-35,height:35,marginLeft:290}}/>
+                  <Image source={require('./img/coin.png')} style={{width:wp("10%"),marginTop:wp("-12%"),height:wp("10%"),marginLeft:wp("82%")}}/>
                   <Text style={styles.cointtxt}>5</Text>
                   <Text style={styles.volunteer}>Volunteer</Text>
-                  <Text style={styles.middletxt}>Love your Park Day - Lardner's{'\n'}          Point Park (Tacony)</Text>
+                  <Text style={styles.middletxt}>Love your Park Day - Lardner's{'\n'}</Text>
+                  <Text style={styles.middletxtPointPark}>Point Park (Tacony)</Text>
                   {
                       (shiftShow)?
                       <View style={styles.insideContainerShift}>
                       <Text style={styles.insideContainertxt2}>May 19, 2018</Text>
-                      <View style={{marginTop:-18,marginLeft:295}}>
+                      <View style={{marginTop:wp("-5%"),marginLeft:wp("85%")}}>
                       <Button onPress={this.hideShift}>
-                      <Image source={require('./img/arrowdown.png')} style={{width:30,height:18}}/>
+                      <Image source={require('./img/arrowdown.png')} style={{width:wp("9%"),height:wp("6%")}}/>
                       </Button>
                       </View>
                       <Text style={styles.shifttxt}>Select a Shift</Text>
@@ -363,36 +370,38 @@ class ShiftComponent extends Component{
                               <Text style={styles.insideContainertxt}>Signed Up List</Text>
                                 <View>
                                     <View>
-                                    <Image source={require('./img/user3.png')} style={{width:40,height:40,marginTop:5,marginLeft:10,borderRadius:100}}/>
-                                    <Text style={{color:'#535454',fontSize:14,marginTop:-30,marginLeft:60}}>Anne Rose</Text>
+                                    <Image source={require('./img/user3.png')} style={{width:wp("11%"),height:wp("11%"),marginTop:wp("1%"),marginLeft:wp("3%"),borderRadius:100}}/>
+                                    <Text style={{color:'#535454',fontSize:wp("4%"),marginTop:wp("-8%"),marginLeft:wp("16%")}}>Anne Rose</Text>
                                     </View>
                                     <View>
-                                    <Image source={require('./img/jason.png')} style={{width:40,height:40,marginLeft:180,borderRadius:100,marginTop:-28}}/>
-                                    <Text style={{color:'#535454',fontSize:14,marginTop:-32,marginLeft:230}}>Jason Peterson</Text>
+                                    <Image source={require('./img/jason.png')} style={{width:wp("11%"),height:wp("11%"),marginLeft:wp("50%"),borderRadius:100,marginTop:wp("-7.5%")}}/>
+                                    <Text style={{color:'#535454',fontSize:wp("4%"),marginTop:wp("-8%"),marginLeft:wp("63%")}}>Jason Peterson</Text>
                                     </View>
                                     <View>
-                                    <Image source={require('./img/tiana.png')} style={{width:40,height:40,marginTop:30,marginLeft:10,borderRadius:100}}/>
-                                    <Text style={{color:'#535454',fontSize:14,marginTop:-30,marginLeft:60}}>Tiana O'Neill</Text>
+                                    <Image source={require('./img/tiana.png')} style={{width:wp("11%"),height:wp("11%"),marginTop:wp("7%"),marginLeft:wp("3%"),borderRadius:100}}/>
+                                    <Text style={{color:'#535454',fontSize:wp("4%"),marginTop:wp("-8%"),marginLeft:wp("16%")}}>Tiana O'Neill</Text>
                                     </View>
                                     <View>
-                                    <Image source={require('./img/user3.png')} style={{width:40,height:40,marginLeft:180,borderRadius:100,marginTop:-28}}/>
-                                    <Text style={{color:'#535454',fontSize:14,marginTop:-32,marginLeft:230}}>Anne Rose</Text>
+                                    <Image source={require('./img/user3.png')} style={{width:wp("11%"),height:wp("11%"),marginLeft:wp("50%"),borderRadius:100,marginTop:wp("-7.5%")}}/>
+                                    <Text style={{color:'#535454',fontSize:wp("4%"),marginTop:wp("-8%"),marginLeft:wp("63%")}}>Anne Rose</Text>
                                     </View>
                                     <View>
-                                    <Image source={require('./img/peter.png')} style={{width:40,height:40,marginTop:30,marginLeft:10,borderRadius:100}}/>
-                                    <Text style={{color:'#535454',fontSize:14,marginTop:-30,marginLeft:60}}>Peter Lou</Text>
+                                    <Image source={require('./img/peter.png')} style={{width:wp("11%"),height:wp("11%"),marginTop:wp("7%"),marginLeft:wp("3%"),borderRadius:100}}/>
+                                    <Text style={{color:'#535454',fontSize:wp("4%"),marginTop:wp("-8%"),marginLeft:wp("16%")}}>Peter Lou</Text>
                                     </View>
                                     <View>
-                                    <Image source={require('./img/Mohammad.png')} style={{width:40,height:40,marginLeft:180,borderRadius:100,marginTop:-28}}/>
-                                    <Text style={{color:'#535454',fontSize:14,marginTop:-32,marginLeft:230}}>Mohammad M.</Text>
+                                    <Image source={require('./img/Mohammad.png')} style={{width:wp("11%"),height:wp("11%"),marginLeft:wp("50%"),borderRadius:100,marginTop:wp("-7.5%")}}/>
+                                    <Text style={{color:'#535454',fontSize:wp("4%"),marginTop:wp("-8%"),marginLeft:wp("63%")}}>Mohammad M.</Text>
                                     </View>
                                 </View>
                               </View>
                               :
                               <View>
-                              <Image source={require('./img/heart.png')} style={{width:20,marginTop:-0,height:20,marginLeft:120}}/>
-                              <Image source={require('./img/eye.png')} style={{width:30,marginTop:-18,height:18,marginLeft:150}}/>
-                              <Image source={require('./img/tree.png')} style={{width:20,marginTop:-20,height:20,marginLeft:190}}/>
+                              <View style={{flexDirection:'row'}}>
+                              <Image source={require('./img/heart.png')} style={{width:wp("10%"),marginTop:wp("-0.1%"),height:wp("6%"),marginLeft:wp("35%")}}/>
+                              <Image source={require('./img/eye.png')} style={{width:wp("10%"),marginTop:wp("-0.1%"),height:wp("6%"),marginLeft:wp("0.5%")}}/>
+                              <Image source={require('./img/tree.png')} style={{width:wp("8%"),marginTop:wp("-0.1%"),height:wp("7%"),marginLeft:wp("0.5%")}}/>
+                              </View>
                               <Text style={styles.ptext}>Join us at Lardner's Point Park  for a riverside{'\n'}    park and trail cleanup. We'll be doing trail{'\n'}  maintenance, trash collection, planting and{'\n'}                                     more! </Text>
                               <Text style={styles.sttxt}>5202 Levick St, Philadelphia, PA 19135, USA</Text>
                               <View style={styles.insideContainer}>
@@ -419,7 +428,7 @@ class ShiftComponent extends Component{
                     // <Image source={require('./img/i.png')} style={{width:17,marginTop:-16,height:17,marginLeft:235}}/>
                   }
 
-                  <Image source={require('./img/bookmark.png')} style={{width:35,marginTop:20,height:35,marginLeft:10}}/>
+                  <Image source={require('./img/bookmark.png')} style={{width:wp("10%"),marginTop:wp("5%"),height:wp("10%"),marginLeft:wp("2%")}}/>
                   <Modal
           animationType="slide"
           transparent={true}
@@ -427,11 +436,11 @@ class ShiftComponent extends Component{
           visible={this.state.modalVisible}
          >
           <View style={styles.modalContainer}>
-          <Image source={require('./img/facebook.png')} style={{width:45,marginTop:30,height:45,marginLeft:110}}/>
-          <Image source={require('./img/twitter.png')} style={{width:40,marginTop:-43,height:40,marginLeft:160}}/>
-          <Image source={require('./img/linkedin.png')} style={{width:48,marginTop:-44,height:48,marginLeft:203}}/>
-          <Image source={require('./img/mail.png')} style={{width:40,marginTop:-44,height:40,marginLeft:253}}/>
-          <View style={{marginLeft:300,marginTop:-34}}> 
+          <Image source={require('./img/facebook.png')} style={{width:wp("12%"),marginTop:wp("10%"),height:wp("12%"),marginLeft:wp("30%")}}/>
+          <Image source={require('./img/twitter.png')} style={{width:wp("12%"),marginTop:wp("-12%"),height:wp("12%"),marginLeft:wp("43.4%")}}/>
+          <Image source={require('./img/linkedin.png')} style={{width:wp("13%"),marginTop:wp("-12%"),height:wp("13%"),marginLeft:wp("57%")}}/>
+          <Image source={require('./img/mail.png')} style={{width:wp("12%"),marginTop:wp("-12%"),height:wp("12%"),marginLeft:wp("70%")}}/>
+          <View style={{marginLeft:wp("85%"),marginTop:wp("-11%")}}> 
           <Button style={{width:25,height:25,marginTop:-34}} onPress={this.setModalHide}>
               <Image source={require('./img/share.png')}/>   
             </Button>
@@ -440,10 +449,10 @@ class ShiftComponent extends Component{
           </Modal>
           <View style={{marginTop:-27}}>
               <Button onPress={this.setModalVisible}>
-                  <Image source={require('./img/share.png')} style={{width:25,marginTop:0,height:25,marginLeft:300}}/> 
+                  <Image source={require('./img/share.png')} style={{width:wp("7%"),height:wp("6.8%"),marginLeft:wp("85%")}}/> 
                 </Button>
                     </View>
-                  <Button containerStyle={{padding:10, width:125, marginTop:330, marginLeft:108, position:'absolute', overflow:'hidden', borderRadius:100, backgroundColor: '#FEE000'}} style={styles.takeaction}  onPress={() => Actions.thankyou()}>
+                  <Button containerStyle={{padding:wp("2%"), width:wp("35%"), marginTop:wp("93%"), marginLeft:wp("33%"), position:'absolute', overflow:'hidden', borderRadius:100, backgroundColor: '#FEE000'}} style={styles.takeaction}  onPress={() => Actions.thankyou()}>
                     Take Action
                   </Button>
                   </View>
