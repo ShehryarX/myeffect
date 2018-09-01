@@ -202,10 +202,12 @@ class NewsFeed extends Component{
                         <Text style={styles.feedTime}>April 16</Text>
                         <Text style={styles.feedpost}>Happy Hippie Holiday 2017</Text>
                         <Image source={require('./img/feedpic.png')} style={styles.feedpic}/>
+                        <View style={{marginTop:wp("3%")}}>
                         <Image source={require('./img/heart.png')} style={{width:wp("8%"),height:wp("8%"),marginTop:wp("74%"),marginLeft:wp("6%")}}/>
                         <Image source={require('./img/comment.png')} style={{width:wp("8%"),height:wp("8%"),marginTop:wp("-8%"),marginLeft:wp("17.5%")}}/>
                         <Text style={styles.liketxt}>406</Text>
                         <Text style={styles.commenttxt}>10</Text>
+                        </View>
                         <View>
                         <Image source={require('./img/share.png')} style={{width:wp("5%"),height:wp("5%"),marginTop:wp("-12%"),marginLeft:wp("90%")}}/>
                         </View>
