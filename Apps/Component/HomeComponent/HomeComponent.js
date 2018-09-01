@@ -260,7 +260,7 @@ export default class HomeComponent extends Component {
           </View>
         </Animated.View>
         {/* Page 2 */}
-        <Animated.View style={[styles.screen, transitionAnimation(1)]}>
+        <Animated.View style={[styles.screen,]}>
           <Image source={require('./img/connect.png')} style={styles.backgroundImage} />
           <View style={styles.loginbtnContainer}>
           <View style={{marginLeft:wp('-10%')}}>
@@ -290,7 +290,7 @@ export default class HomeComponent extends Component {
           </View>
         </Animated.View>
         {/* Page 3 */}
-        <Animated.View style={[styles.screen, transitionAnimation(2)]}>
+        <Animated.View style={[styles.screen,]}>
           <Image source={require('./img/track.png')} style={styles.backgroundImage} />
           <View style={styles.loginbtnContainer}>
           <View style={{marginLeft:wp('-10%')}}>
@@ -320,7 +320,7 @@ export default class HomeComponent extends Component {
           </View>
         </Animated.View>
         {/* Page 4 */}
-        <Animated.View style={[styles.screen, transitionAnimation(3)]}>
+        <Animated.View style={[styles.screen,]}>
           <Image source={require('./img/celebrate.png')} style={styles.backgroundImage} />
           <View style={styles.loginbtnContainer}>
           <View style={{marginLeft:wp('-10%')}}>
