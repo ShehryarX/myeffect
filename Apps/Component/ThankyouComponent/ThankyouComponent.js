@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         fontSize:12,
         color:'#00B0F5',
         marginTop:-25,
-        marginLeft:50,
+        marginLeft:wp("15%"),
     },
     actions:{
         fontSize:wp("5%"),
@@ -100,7 +100,7 @@ class ThankyouComponent extends Component{
                   <Button containerStyle={{marginLeft:wp("-1%"), paddingTop:wp("8%"), width:wp("22%"), position:'relative', borderRadius:4, backgroundColor: 'transparent'}} onPress={() => {Alert.alert('You tapped the button!');}}
                     style={{color:'#FCDC28'}}>
                     <View>
-                  <Image source={require('./img/profileimg.png')} style={{width:wp("8%"),marginTop:wp("1%"),height:wp("8%"),marginLeft:wp("4%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                  <Image source={require('./img/profileimg.png')} style={{width:wp("8%"),marginTop:wp("1%"),height:wp("8%"),marginLeft:wp("6%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
                       <Text style={styles.profiletxt}>2400</Text>
                   </View>
                   </Button>
