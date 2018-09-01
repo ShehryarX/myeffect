@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
        schooltxt:{
            color:'#1D529F',
         //    paddingLeft:40,
-        paddingTop:wp("1%"),
+        paddingTop:wp("1.5%"),
         fontSize:wp("4%"),
         justifyContent:'center',
         textAlign:'center'
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
        school:{
            backgroundColor:'#FFFFFF',
            width:wp("40%"),
-           marginLeft:wp("24%"),
+           marginLeft:wp("21%"),
            height:wp("9%"),
            borderRadius:30,
            shadowOffset: {width: 0, height: 5}, 
@@ -148,7 +148,7 @@ class StudentComponent extends Component{
                     <View style={styles.school}>
                         <Text style={styles.schooltxt}>Other</Text>
                     </View>
-                    <Button containerStyle={{marginTop:wp("6%"), marginLeft:wp("23%"), height:wp('9%'), width:wp("35%"), marginBottom:wp("5%"), overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.donebtn} onPress={() => Actions.checkingevent()}>
+                    <Button containerStyle={{marginTop:wp("6%"), marginLeft:wp("24%"), height:wp('9%'), width:wp("35%"), marginBottom:wp("5%"), overflow:'hidden', borderRadius:100, backgroundColor: '#00B0F5'}} style={styles.donebtn} onPress={() => Actions.checkingevent()}>
                     <Text style={styles.donebtn}>Done</Text>
                   </Button>
                   </View>
