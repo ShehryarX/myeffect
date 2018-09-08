@@ -167,6 +167,7 @@ class NewsFeed extends Component{
                   <Text style={styles.seemore}>See More</Text>
                   </TouchableOpacity>
                   {/* <Row dial={1} flex> */}
+                  <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         <View >
                         <TouchableOpacity onPress={() => Actions.shiftcomponent()}>
                         <Image source={require('./img/parkday.png')} style={{width:wp("15%"),marginTop:wp("2%"),height:wp("15%"),marginLeft:wp("5%"), borderRadius:100}}/>
@@ -176,24 +177,25 @@ class NewsFeed extends Component{
                         </TouchableOpacity>
                         </View>
                         <View>
-                        <Image source={require('./img/LGBTQ.png')} style={{width:wp("15%"),marginTop:wp("-24"),height:wp("15%"),marginLeft:wp("28%"), borderRadius:100}}/>
-                        <Image source={require('./img/coin.png')} style={{width:wp("6%"),height:wp("6%"),marginTop:wp("-7.5%"),marginLeft:wp("39%")}}/>
-                        <Text style={{color:'#1D54A0',marginTop:wp("-6%"),fontSize:wp('4%'),marginLeft:wp("41.3%")}}>2</Text>
-                        <Text style={{fontSize:wp("3.3%"),color:'#797979',marginLeft:wp("26%"),marginTop:wp("3%")}}>Happy Hippie{'\n'}  LGBTQ run</Text>
+                        <Image source={require('./img/LGBTQ.png')} style={{width:wp("15%"),marginTop:wp("2%"),height:wp("15%"),marginLeft:wp("6.5%"), borderRadius:100}}/>
+                        <Image source={require('./img/coin.png')} style={{width:wp("6%"),height:wp("6%"),marginTop:wp("-7.5%"),marginLeft:wp("19.5%")}}/>
+                        <Text style={{color:'#1D54A0',marginTop:wp("-6%"),fontSize:wp('4%'),marginLeft:wp("21.5%")}}>2</Text>
+                        <Text style={{fontSize:wp("3.3%"),color:'#797979',marginLeft:wp("5%"),marginTop:wp("3%")}}>Happy Hippie{'\n'}  LGBTQ run</Text>
                         </View>
                         <View>
-                        <Image source={require('./img/code.png')} style={{width:wp("15%"),marginTop:wp("-24.5%"),height:wp("15%"),marginLeft:wp("55%"), borderRadius:100}}/>
-                        <Image source={require('./img/coin.png')} style={{width:wp("6%"),height:wp("6%"),marginTop:wp("-7%"),marginLeft:wp("66%")}}/>
-                        <Text style={{color:'#1D54A0',marginTop:wp("-6%"),fontSize:wp('4%'),marginLeft:wp("68%")}}>5</Text>
-                        <Text style={{fontSize:wp("3.3%"),color:'#797979',marginLeft:wp("51%"),marginTop:wp("3%")}}>Code Workshop{'\n'}    Volunteer</Text>
+                        <Image source={require('./img/code.png')} style={{width:wp("15%"),marginTop:wp("2%"),height:wp("15%"),marginLeft:wp("7%"), borderRadius:100}}/>
+                        <Image source={require('./img/coin.png')} style={{width:wp("6%"),height:wp("6%"),marginTop:wp("-7%"),marginLeft:wp("19.5%")}}/>
+                        <Text style={{color:'#1D54A0',marginTop:wp("-6%"),fontSize:wp('4%'),marginLeft:wp("21.5%")}}>5</Text>
+                        <Text style={{fontSize:wp("3.3%"),color:'#797979',marginLeft:wp("4%"),marginTop:wp("3%")}}>Code Workshop{'\n'}     Volunteer</Text>
                         </View>
                         <View>
-                        <Image source={require('./img/dog.png')} style={{width:wp("15%"),marginTop:wp("-25%"),height:wp("15%"),marginLeft:wp("80%"), borderRadius:100}}/>
-                        <Image source={require('./img/coin.png')} style={{width:wp("6%"),height:wp("6%"),marginTop:wp("-7%"),marginLeft:wp("90.5%")}}/>
-                        <Text style={{color:'#1D54A0',marginTop:wp("-6%"),fontSize:wp('4%'),marginLeft:wp("92.5%")}}>5</Text>
-                        <Text style={{fontSize:wp("3.3%"),color:'#797979',marginLeft:wp("76.5%"),marginTop:wp("3%")}}>Dog Rescue &{'\n'}Rehabbilitation</Text>
+                        <Image source={require('./img/dog.png')} style={{width:wp("15%"),marginTop:wp("2%"),height:wp("15%"),marginLeft:wp("6.5%"), borderRadius:100}}/>
+                        <Image source={require('./img/coin.png')} style={{width:wp("6%"),height:wp("6%"),marginTop:wp("-7%"),marginLeft:wp("17%")}}/>
+                        <Text style={{color:'#1D54A0',marginTop:wp("-6%"),fontSize:wp('4%'),marginLeft:wp("19%")}}>5</Text>
+                        <Text style={{fontSize:wp("3.3%"),color:'#797979',marginLeft:wp("4%"),marginTop:wp("3%")}}>Dog Rescue &{'\n'}Rehabbilitation</Text>
                         <Text style={styles.line2}>────────────────────────────────────</Text>
                         </View>
+                        </ScrollView>
                         <View>
                         <Image source={require('./img/happyhippie.png')} style={{width:wp("12%"),marginTop:wp("-0%"),height:wp("12%"),marginLeft:("8%"), borderRadius:100}}/>
                         <Text style={styles.feedtxt}>Happy Hippie</Text>
