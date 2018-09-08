@@ -4,7 +4,7 @@ import Button from 'react-native-button';
 import PageControl from 'react-native-page-control'; //This library provide dots fro navigation
 import { Actions } from 'react-native-router-flux'; // New code
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
-import {moderateScale} from '../scaling'
+import {moderateScale} from '../scaling';
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 const window = Dimensions.get("window").width;
