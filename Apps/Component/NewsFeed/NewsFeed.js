@@ -133,6 +133,9 @@ feedpic: {
     inputcomment:{
         marginTop:wp("-9%"),
         marginLeft:wp("17%")
+    },
+    otherPost:{
+        marginTop:wp("4%")
     }
     })
 
@@ -197,6 +200,34 @@ class NewsFeed extends Component{
                         </View>
                         </ScrollView>
                         <View>
+                        <Image source={require('./img/happyhippie.png')} style={{width:wp("12%"),marginTop:wp("-0%"),height:wp("12%"),marginLeft:("8%"), borderRadius:100}}/>
+                        <Text style={styles.feedtxt}>Happy Hippie</Text>
+                        <Image source={require('./img/profiletick.png')} style={{width:wp("4%"),marginTop:wp('-5%'),height:wp("4%"),marginLeft:wp("55%"), borderRadius:100}}/>
+                        <Text style={styles.feedcaption}>New York, New York</Text>
+                        <Text style={styles.feedTime}>April 16</Text>
+                        <Text style={styles.feedpost}>Happy Hippie Holiday 2017</Text>
+                        <Image source={require('./img/feedpic.png')} style={styles.feedpic}/>
+                        <View style={{marginTop:wp("3%")}}>
+                        <Image source={require('./img/heart.png')} style={{width:wp("8%"),height:wp("8%"),marginTop:wp("74%"),marginLeft:wp("6%")}}/>
+                        <Image source={require('./img/comment.png')} style={{width:wp("8%"),height:wp("8%"),marginTop:wp("-8%"),marginLeft:wp("17.5%")}}/>
+                        <Text style={styles.liketxt}>406</Text>
+                        <Text style={styles.commenttxt}>10</Text>
+                        </View>
+                        <View>
+                        <Image source={require('./img/share.png')} style={{width:wp("5%"),height:wp("5%"),marginTop:wp("-12%"),marginLeft:wp("90%")}}/>
+                        </View>
+                        <View>
+                            <Text style={styles.commentuser}>@Sample_User <Text style={{color:'#444444'}}>Love this!</Text></Text>
+                        </View>
+                        <View>
+                        <Image source={require('./img/profileimg.png')} style={{width:wp("8%"),marginTop:wp("1%"),height:wp("8%"),marginLeft:wp("4%"),borderColor:'#00B0F5',borderWidth:2, borderRadius:100}}/>
+                        <TextInput  style={styles.inputcomment}  underlineColorAndroid = "transparent" placeholder = "Add a comment..." placeholderTextColor = "#CDCDCD" onChangeText={(comment) => this.setState({comment})}
+                        value={this.state.comment}
+                         />
+                        </View>
+                        </View>
+                        {/* Next Post */}
+                        <View style={styles.otherPost}>
                         <Image source={require('./img/happyhippie.png')} style={{width:wp("12%"),marginTop:wp("-0%"),height:wp("12%"),marginLeft:("8%"), borderRadius:100}}/>
                         <Text style={styles.feedtxt}>Happy Hippie</Text>
                         <Image source={require('./img/profiletick.png')} style={{width:wp("4%"),marginTop:wp('-5%'),height:wp("4%"),marginLeft:wp("55%"), borderRadius:100}}/>
