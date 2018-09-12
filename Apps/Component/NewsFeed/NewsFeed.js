@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         position:'relative',
         width: wp('100%'),
         height: hp('100%'),
-        // backgroundColor:'#EDF1F5'
+        backgroundColor:'white'
        },
        arrowbtnContainer:{
         position:'relative',
@@ -135,7 +135,7 @@ feedpic: {
         marginLeft:wp("17%")
     },
     otherPost:{
-        marginTop:wp("4%")
+        marginTop:wp("6%")
     }
     })
 
