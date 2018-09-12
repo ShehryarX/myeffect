@@ -98,9 +98,38 @@ const styles = StyleSheet.create({
 class StudentComponent extends Component{
     constructor(props){
         super(props)
+        this.state ={
+            firstImage:false,
+            secondImage:true,
+            thirdImage:false,
+        }
+        this.firstImage = this.firstImage.bind(this);
+        this.secondImage = this.secondImage.bind(this);
+        this.thirdImage = this.thirdImage.bind(this);
     }
-
+    firstImage(){
+        this.setState({
+            firstImage:true,
+            secondImage:false,
+            thirdImage:false,
+        })
+    }
+    secondImage(){
+        this.setState({
+            firstImage:false,
+            secondImage:true,
+            thirdImage:false,
+        })
+    }
+    thirdImage(){
+        this.setState({
+            firstImage:false,
+            secondImage:false,
+            thirdImage:true,
+        })
+    }
     render(){
+        const {firstImage,secondImage,thirdImage} = this.state;
         return(
             <ScrollView style={styles.container}>
             {/* <View style={styles.container}> */}
@@ -122,18 +151,39 @@ class StudentComponent extends Component{
                     <Text style={styles.studenttxt}>Student</Text>
                     <Row style={{marginLeft:wp("-10%")}}>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <Button onPress={this.firstImage}>
                         <View>
                         <Image source={require('./img/student1.png')} style={{width:wp("50%"),height:wp("50%"),marginTop:wp("1%"),marginLeft:wp("-0.1%"),borderRadius:150}}/>
-                        <Image source={require('./img/tick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("38%"),borderRadius:150}}/>
+                        {
+                            (firstImage)?
+                            <Image source={require('./img/greentick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("38%"),borderRadius:150}}/>
+                            :
+                            <Image source={require('./img/tick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("38%"),borderRadius:150}}/>
+                        }
                         </View>
+                    </Button>
+                    <Button onPress={this.secondImage}>
                         <View>
                         <Image source={require('./img/student2.png')} style={{width:wp("50%"),height:wp("50%"),marginTop:wp("1%"),marginLeft:wp("6%"),borderRadius:150}}/>    
-                        <Image source={require('./img/greentick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("45%"),borderRadius:150}}/>
+                        {
+                            (secondImage)?
+                            <Image source={require('./img/greentick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("45%"),borderRadius:150}}/>
+                            :
+                            <Image source={require('./img/tick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("45%"),borderRadius:150}}/>                            
+                        }
                         </View>
+                        </Button>
+                        <Button onPress={this.thirdImage}>
                         <View>
                         <Image source={require('./img/student3.png')} style={{width:wp("50%"),height:wp("50%"),marginTop:wp("1%"),marginLeft:wp("8%"),borderRadius:150}}/>
-                        <Image source={require('./img/tick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("46%"),borderRadius:150}}/>    
+                        {
+                            (thirdImage)?
+                            <Image source={require('./img/greentick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("46%"),borderRadius:150}}/>
+                            :
+                            <Image source={require('./img/tick.png')} style={{width:wp("10%"),height:wp("10%"),marginTop:wp("-10%"),marginLeft:wp("46%"),borderRadius:150}}/>                            
+                        }  
                         </View>
+                        </Button>
                         </ScrollView>
                     </Row>
                     <View style={{marginTop:wp("2%"),marginLeft:wp("-17%")}}>
